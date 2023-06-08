@@ -1,0 +1,42 @@
+﻿body {
+}
+.content{
+    display: flex;
+    margin-top: 20px;
+}
+.content-left {
+    width: 1944px;
+}
+.content-right {
+    margin-left:45px;
+}
+.type-content {
+    display: flex;
+}
+.type .type-1 table {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background: #f8faff;
+}
+.type .type-1 table td {
+    text-align: center;
+    width: 145.5px;
+    border: 1px solid #6587FF;
+}
+.type .type-1 table td p{
+    margin-top:10px;
+    font-size:16px;
+}
+.filter{
+    margin-top: 40px;
+}
+.filter table {
+    margin-top: 1px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.filter table td #filter {
+    background: #65ACFF;
+    border: 1px solid #BFB8B8;
+}
+.filter table td #filter:hover {
+    background: #BFB8B8;
+}

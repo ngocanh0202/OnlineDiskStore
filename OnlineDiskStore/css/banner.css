@@ -1,0 +1,73 @@
+﻿body {
+}
+body {
+}
+
+.banner {
+    position: relative;
+    display: flex;
+    margin-top: 10px;
+    height: 103px;
+}
+
+#logo {
+    width: 73.5px;
+    height: 75px;
+}
+
+#account {
+    width: 72px;
+    height: 72px;
+    top: -8px;
+}
+
+#cart {
+    width: 72px;
+    height: 72px;
+    top: -12px
+}
+
+.search {
+    display: flex;
+    position: relative;
+    left: 40px;
+    top: 24px;
+    height: 41px;
+}
+
+.search-1 #search {
+    width: 909px;
+    height: 43px;
+    border: 1px solid #C1BDBD;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.search-2 #image {
+    position: absolute;
+    right: 9px;
+    top: 10px;
+}
+
+.cart {
+    position: absolute;
+    left: 1068px;
+}
+
+.cart .cart-2 p {
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.account {
+    position: absolute;
+    left: 1200px;
+}
+
+.account .account-2 p {
+    font-family: 'Inter';
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}

@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master-page.Master.cs" Inherits="OnlineDiskStore.Master_page" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="stylesheet" href="css/banner.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container" style="text-align:center">
+            <div class ="banner">
+                <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" OnClick="logo_Click" />
+                <div class="search">
+                    <div class="search-1">
+                        <input id="search" type="text" placeholder="Tìm kiếm"  />
+                    </div>
+                    <div class="search-2">
+                        <asp:ImageButton ID="image" runat="server" ImageUrl="icons/logo-timkiem.png" />
+                    </div>
+                </div>
+                <div class="cart">
+                    <div class="cart-1">
+                        <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" />
+                    </div>
+                    <div class="cart-2">
+                        <p>Giỏ hàng</p>
+                    </div>
+                </div>
+               <div class="account">
+                   <div class="account-1">
+                       <asp:ImageButton ID="account" runat="server" ImageUrl="icons/logo-account.png" />
+                   </div>
+                   <div class="account-2">
+                       <p>Tài khoản</p>
+                   </div>
+               </div>
+            </div>
+            <div class="content">
+                <div class="content-left">
+                    <div>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="type">
+                        <div class="type-1">
+                            <table style="width:291px">
+                                <tr>
+                                    <td colspan="2" style="width:288px;height:40px;text-align:center; background:#6587FF; color:white; font-size:20px">
+                                        Thể loại game
+                                    </td>
+                                  
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <asp:LinkButton ID="hanhdong" runat="server">Hành động</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="tritue" runat="server">Trí tuệ</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="doikhang" runat="server">Đối kháng</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="danhtheoluot" runat="server">Đánh theo lượt</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="chienthuat" runat="server">Chiến thuật</asp:LinkButton>
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p>
+                                            <asp:LinkButton ID="nhapvai" runat="server">Nhập vai</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="kinhdi" runat="server">Kinh dị</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="bansung" runat="server">Bắn súng</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="thethao" runat="server">Thể thao</asp:LinkButton>
+                                        </p>
+                                        <p>
+                                            <asp:LinkButton ID="khac" runat="server">Khác</asp:LinkButton>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        
+                    </div>
+                    <div class="filter">
+                        <table style="width:291px">
+                            <tr>
+                                <td colspan="2" style="background:#BFB8B8; color:white; width:288px; text-align:center;font-size:20px">
+                                    Bộ lọc
+                                </td>
+                            </tr>
+                            <tr>
+                               <td style="padding:20px 0px 0px 20px; margin-top:15px; font-size:16px">
+                                    Thể loại
+                               </td>
+                                <td style="padding:20px 0px 0px 0px;margin-top:15px; font-size:16px">
+                                    <asp:DropDownList ID="DropDownList1" runat="server" Width="129px">
+                                        <asp:ListItem>Tất cả thể loại</asp:ListItem>
+                                    </asp:DropDownList>   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:20px 0px 0px 20px; margin-top:15px; font-size:16px">
+                                    Năm phát hành
+                                </td>
+                                <td style="padding:20px 0px 0px 0px; margin-top:15px;font-size:16px">
+                                    <asp:DropDownList ID="DropDownList2" runat="server" Width=129px >
+                                        <asp:ListItem>2023</asp:ListItem>
+                                        <asp:ListItem>2022</asp:ListItem>
+                                        <asp:ListItem>2021</asp:ListItem>
+                                        <asp:ListItem>2020</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="padding:20px 0px 15px 0px; text-align:center">
+                                    <asp:Button ID="filter" runat="server" Text="LỌC"  />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
