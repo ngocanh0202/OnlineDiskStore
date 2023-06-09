@@ -120,6 +120,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\banner.css" />
+    <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
     <Content Include="css\master.css" />
     <Content Include="detail.aspx" />

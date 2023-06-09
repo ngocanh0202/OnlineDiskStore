@@ -73,38 +73,38 @@ namespace OnlineDiskStore
 
         protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
         {
-            Context.Items["msp"] = ((ImageButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id="+a);
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-            Context.Items["msp"] = ((LinkButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((LinkButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id=" + a);
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            Context.Items["msp"] = ((ImageButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id=" + a);
         }
 
         protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
         {
-            Context.Items["msp"] = ((ImageButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id=" + a);
         }
 
         protected void ImageButton1_Click2(object sender, ImageClickEventArgs e)
         {
-            Context.Items["msp"] = ((ImageButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id=" + a);
         }
 
         protected void ImageButton1_Click3(object sender, ImageClickEventArgs e)
         {
-            Context.Items["msp"] = ((ImageButton)sender).CommandArgument.ToString();
-            Server.Transfer("detail.aspx");
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            Response.Redirect("detail.aspx?id=" + a);
         }
     }
 }
