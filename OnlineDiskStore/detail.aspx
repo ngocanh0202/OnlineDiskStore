@@ -68,9 +68,9 @@
                                                 <span class="detail-content-information-1-number-1">Số lượng</span>
                                                 <div class="detail-number-in-de">
                                                     <!---------Tăng giảm không bị refresh web------------->
-                                                    <asp:Button ID="Button1" CommandName="Decrease" runat="server" Text="-" OnClick="Button1_Click" />
+                                                    <asp:Button ID="Button1" CommandName="Decrease" runat="server" Text="-"/>
                                                     <asp:TextBox ID="TextBox1" AutoPostBack="true" runat="server" Text="1"></asp:TextBox>
-                                                    <asp:Button ID="Button2" CommandName="Increase" runat="server" Text="+" OnClick="Button2_Click" />
+                                                    <asp:Button ID="Button2" CommandName="Increase" runat="server" Text="+"/>
                                                 </div>
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("productStockLevel") %>'></asp:Label>
                                                 <span class="detail-content-information-1-number-2">Sản phẩm có sẵn</span>

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -32,16 +34,7 @@ namespace OnlineDiskStore
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();  
         }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            
-        }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
@@ -79,7 +72,35 @@ namespace OnlineDiskStore
 
         protected void addtocart_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this,this.GetType(),"alerMessage","alert('Thêm thành công')",true);
+            Button btn = (Button)sender;
+            DataListItem item = (DataListItem)btn.NamingContainer;
+            TextBox txt = (TextBox)item.FindControl("TextBox1");
+            int textbox11 = int.Parse(txt.Text);
+            string id = ((Button)sender).CommandArgument.ToString();
+            string dem1sql = "select productStockLevel from Product where productID = '"+id+"'";
+            string dem2sql = "select count(*) from CartProduct where productID = '" + id + "'";
+
+            if ((int)ldc.count(dem2sql) == 0)
+            {
+
+                string sql = "insert into CartProduct values('01','" + id + "','" + textbox11 + "')";
+                ldc.command(sql, "Thêm vào giỏ hàng thành công", this);
+            }
+            else if ((int)ldc.count(dem2sql) > 0)
+            {
+                string dem22sql = "select Quanity from CartProduct where productID = '" + id + "'";
+                if ((int)ldc.count(dem1sql) >= ((int)ldc.count(dem22sql) + textbox11))
+                {
+                    int dem = (int)ldc.count(dem22sql) + textbox11;
+                    string sql = "update CartProduct set Quanity = '"+dem+"' where productID = '"+id+"'";
+                    ldc.command(sql, "Thêm vào giỏ hàng thành công", this);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Hàng thêm quá tải')", true);
+                }
+            }
+
         }
 
         protected void buynow_Click(object sender, EventArgs e)
