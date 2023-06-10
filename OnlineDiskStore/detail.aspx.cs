@@ -105,7 +105,7 @@ namespace OnlineDiskStore
 
         protected void buynow_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(),"alerMessage", "alert('Mua ngay')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(),"alerMessage", "alert('Chưa cập nhập chức năng này')", true);
         }
 
         protected void cart_Click(object sender, ImageClickEventArgs e)
