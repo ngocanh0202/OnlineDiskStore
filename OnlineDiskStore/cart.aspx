@@ -13,7 +13,7 @@
         <div class="container">
             <div class="cart-banner">
                 <div class="cart-banner-icon">
-                    <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="icons/logo-image.png" />
+                    <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="icons/logo-image.png" OnClick="ImageButton2_Click" />
                 </div>
                 <div class="car-banner-line">
                 </div>
@@ -43,40 +43,33 @@
                 </div>
             </div>
             <div class="cart-content-product">
-                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <asp:DataList ID="DataList1" runat="server" RepeatColumns="1" OnItemCommand="DataList1_ItemCommand">
-                            <ItemTemplate>
-                                <div class="cart-content-product-1">
-                                    <div class="cart-content-information-image">
-                                        <div class="cart-content-information-image-1">
-                                            <asp:Image CssClass="image2" ID="Image2" runat="server" ImageUrl='<%# "image/"+Eval("productImage") %>' />
-                                        </div>
-                                    </div>
-                                    <div class="cart-content-information-name">
-                                        <asp:Label CssClass="label1" ID="Label1" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
-                                    </div>
-                                    <div class="cart-content-information-quantity">
-                                        <asp:Button ID="Button2" CssClass="button-in-de" CommandName="de" runat="server" Text="-" />
-                                        <asp:Label CssClass="label2" ID="Label2" runat="server" Text='<%# Eval("Quanity") %>'></asp:Label>
-                                        <asp:Button ID="Button3" CssClass="button-in-de" CommandName="in" runat="server" Text="+" />
-                                    </div>
-                                    <div class="cart-content-information-price">
-                                        <asp:Label CssClass="label3" ID="Label3" runat="server" Text='<%# Eval("productPrice") %>'></asp:Label>
-                                        <span>VND</span>
-                                    </div>
-                                    <div class="cart-content-information-button">
-                                        <asp:ImageButton CssClass="imagebutton1" ID="ImageButton1" runat="server" ImageUrl="icons/x.png" CommandArgument='<%# Eval("productID") %>' />
-                                    </div>
+                <asp:DataList ID="DataList1" runat="server" RepeatColumns="1" OnItemCommand="DataList1_ItemCommand">
+                    <ItemTemplate>
+                        <div class="cart-content-product-1">
+                            <div class="cart-content-information-image">
+                                <div class="cart-content-information-image-1">
+                                    <asp:Image CssClass="image2" ID="Image2" runat="server" ImageUrl='<%# "image/"+Eval("productImage") %>' />
                                 </div>
-                            </ItemTemplate>
-                        </asp:DataList>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="DataList1" EventName="ItemCommand" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                            </div>
+                            <div class="cart-content-information-name">
+                                <asp:Label CssClass="label1" ID="Label1" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
+                            </div>
+                            <div class="cart-content-information-quantity">
+                                <asp:Button ID="Button2" CssClass="button-in-de" CommandName="de" runat="server" Text="-" />
+                                <asp:Label CssClass="label2" ID="Label2" runat="server" Text='<%# Eval("Quanity") %>'></asp:Label>
+                                <asp:Button ID="Button3" CssClass="button-in-de" CommandName="in" runat="server" Text="+" />
+                            </div>
+                            <div class="cart-content-information-price">
+                                <asp:Label CssClass="label3" ID="Label3" runat="server" Text='<%# Eval("productPrice") %>'></asp:Label>
+                                <span>VND</span>
+                            </div>
+                            <div class="cart-content-information-button">
+                                <asp:ImageButton CssClass="imagebutton1" ID="ImageButton1" runat="server" ImageUrl="icons/x.png" CommandArgument='<%# Eval("productID") %>' OnClick="ImageButton1_Click" />
+                            </div>
+                        </div>
+                        <asp:Label ID="Label5" runat="server" Visible="False" Text='<%# Eval("productID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:DataList>
             </div>
             <div class="cart-total">
                 <div class="cart-total-1">

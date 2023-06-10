@@ -14,7 +14,7 @@
         <div class="container">
             <div class="banner">
                 <!---------Banner------------->
-                <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" />
+                <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" OnClick="logo_Click" />
                 <div class="search">
                     <div class="search-1">
                         <input id="search" type="text" placeholder="Tìm kiếm" />
@@ -25,7 +25,7 @@
                 </div>
                 <div class="cart">
                     <div class="cart-1">
-                        <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" />
+                        <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" OnClick="cart_Click" />
                     </div>
                     <div class="cart-2">
                         <p>Giỏ hàng</p>

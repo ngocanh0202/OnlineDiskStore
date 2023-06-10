@@ -107,5 +107,15 @@ namespace OnlineDiskStore
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(),"alerMessage", "alert('Mua ngay')", true);
         }
+
+        protected void cart_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("cart.aspx");
+        }
+
+        protected void logo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
+        }
     }
 }

@@ -18,5 +18,10 @@ namespace OnlineDiskStore
         {
             Server.Transfer("home-page.aspx");
         }
+
+        protected void cart_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("cart.aspx");
+        }
     }
 }

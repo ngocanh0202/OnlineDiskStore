@@ -40,6 +40,13 @@ namespace OnlineDiskStore
             cn.Close();
 
         }
+        public void command2(string sql)
+        {
+            SqlCommand cm = new SqlCommand(sql,cn);
+            cn.Open();
+            cm.ExecuteNonQuery();
+            cn.Close();
+        }
         public object count(string sql)
         {
             SqlCommand cm = new SqlCommand(sql, cn);

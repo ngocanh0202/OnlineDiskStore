@@ -19,6 +19,8 @@ namespace OnlineDiskStore
             if (IsPostBack) return;
             loaddata();
             total();
+
+            
         }
         private void loaddata()
         {
@@ -40,24 +42,46 @@ namespace OnlineDiskStore
 
                 Label Label2 = (Label)e.Item.FindControl("Label2");
                 Label Label1 = (Label)e.Item.FindControl("Label1");
+                Label Label5 = (Label)e.Item.FindControl("Label5");
                 string sql = "select productStockLevel from Product where productName = '"+Label1.Text+"'";
                 int a = int.Parse(Label2.Text);
-                if (a <= (int)ldc.count(sql))
+                if (a < (int)ldc.count(sql))
                 {
                     a++;
                 }
+                string sqlcartproduct = "update CartProduct set Quanity = '"+a+"' where productID = '"+Label5.Text+"' ";
+                ldc.command2(sqlcartproduct);
+                total();
                 Label2.Text = a.ToString();
             }
             else if (e.CommandName == "de")
             {
                 Label Label2 = (Label)e.Item.FindControl("Label2");
+                Label Label5 = (Label)e.Item.FindControl("Label5");
                 int quantity = int.Parse(Label2.Text);
                 if (quantity > 1)
                 {
                     quantity--;
                 }
+                string sqlcartproduct = "update CartProduct set Quanity = '"+quantity+"' where productID = '"+Label5.Text+"'";
+                ldc.command2(sqlcartproduct);
+                total();
                 Label2.Text = quantity.ToString();
             }
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            string a = ((ImageButton)sender).CommandArgument.ToString();
+            string sql = "delete from CartProduct where productID = '"+a+"'";
+            ldc.command(sql, "xoa thanh cong", this);
+            loaddata();
+            total();
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
         }
     }
 }
