@@ -126,7 +126,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" Width="300px" Height="110px"></asp:TextBox>
                 </div>
                 <br />
-                <button type="button" id="button-close-address" onclick="closechoiceaddress()">Chốt</button>
+                <button type="button" id="button-close-address"  onclick="closechoiceaddress()">Chốt</button>
             </div>
         </div>
         <script src="javascript/even_pay.js"></script>
