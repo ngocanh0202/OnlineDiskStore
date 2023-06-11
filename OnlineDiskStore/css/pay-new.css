@@ -1,0 +1,257 @@
+﻿body {
+}
+.containner{
+    width:1000px;
+}
+.pay-banner {
+    display: flex;
+    width: 100%;
+    height: 150px;
+    margin-top: 25px;
+}
+.pay-banner .pay-banner-logo #ImageButton1{
+    height:120px;
+    margin-top:14px;
+}
+.pay-banner .pay-banner-line{
+    height: 100%;
+    width: 3px;
+    background: red;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.pay-banner .pay-banner-text{
+    padding-top: 45px;
+    color: red;
+}
+.pay-content {
+    background: #D9D9D9;
+    margin-top:30px;
+    padding-bottom:30px;
+}
+.pay-content .pay-text{
+    display:flex;
+}
+.pay-content .pay-text-image{
+    width: 195px;
+    margin-left:110px;
+    font-size: 23px;
+    text-align: center;
+    padding-top:10px;
+}
+.pay-content .pay-text-name{
+    width: 210px;
+    margin-left: 95px;
+    font-size: 23px;
+    text-align: center;
+    padding-top:10px;
+}
+.pay-content .pay-text-numbers{
+    width: 96px;
+    margin-left: 130px;
+    font-size: 23px;
+    text-align: center;
+    padding-top:10px;
+}
+.pay-content .pay-text-price {
+    width: 290px;
+    margin-left: 79px;
+    font-size: 23px;
+    text-align: center;
+    padding-top:10px;
+}
+.pay-content .pay-text-datalist {
+}
+.pay-content .pay-text-datalist .pay-text-datalist-1{
+    display:flex;
+}
+.pay-content .pay-text-datalist .pay-text-datalist-image {
+    height: 245px;
+    width: 195px;
+    margin-left:110px;
+}
+
+.pay-content .pay-text-datalist .pay-text-datalist-image .payimage{
+    height:100%;
+    width:100%;
+    object-fit:contain;
+}
+.pay-text-datalist-name {
+    width: 210px;
+    font-size: 30px;
+    margin-left: 95px;
+    padding-top: 70px;
+    text-align: center;
+}
+.pay-text-datalist-numbers {
+    width: 96px;
+    text-align: center;
+    padding-top: 59px;
+    font-size: 39px;
+    margin-left: 130px;
+}
+
+.pay-text-datalist-price {
+    width: 290px;
+    font-size: 39px;
+    padding-top: 59px;
+    text-align: center;
+    margin-left: 79px;
+}
+
+.pay-voucher {
+    margin-top: 15px;
+    background: #D9D9D9;
+    display: flex;
+    position: relative;
+    height: 65px;
+}
+.pay-voucher .pay-voucher-text{
+   position: absolute;
+    left: 20px;
+    font-size: 25px;
+    top: 12px;
+}
+.pay-voucher .pay-voucher-button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.pay-voucher .pay-voucher-button button{
+    border: none;
+    background: #D9D9D9;
+    color: #2F7AEB;
+    font-size: 25px;
+}
+.pay-voucher .pay-voucher-button button:hover{
+    text-decoration:underline;
+}
+.pay-voucher-Choices_voucher {
+    width: 500px;
+    height: 200px;
+    border: 1px solid;
+    background: white;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s;
+}
+.open-pay-voucher-Choices_voucher {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+#DropDownList1 {
+    width: 245px;
+    text-align: center;
+}
+#button-close-voucher {
+    background: red;
+    color: white;
+    height: 40px;
+    width: 96px;
+    font-size: 22px;
+    margin-top: 35px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.pay-method-pay {
+    margin-top:15px;
+    background: #D9D9D9;
+    height: 65px;
+    display: flex;
+    position: relative;
+}
+.pay-method-pay .pay-method-pay-text {
+    position:absolute;
+    top:10px;
+    left:20px;
+    font-size: 25px;
+}
+.pay-method-pay .pay-method-pay-button{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.pay-method-pay .pay-method-pay-button button{
+    border: none;
+    background: #D9D9D9;
+    color: #2F7AEB;
+    font-size: 25px;
+}
+.pay-method-pay .pay-method-pay-button button:hover{
+    text-decoration:underline;
+}
+.pay-method-pay-choices {
+    width: 720px;
+    height: 205px;
+    border: 1px solid;
+    text-align: center;
+    padding-top: 20px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: transform 0.4s;
+    visibility:hidden;
+}
+.open-pay-method-pay-choices {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+#DropDownList2{
+    text-align:center;
+    border:1px solid;
+}
+.pay-method-pay-choices #button-close-method-pay {
+    background: red;
+    color: white;
+    height: 40px;
+    width: 96px;
+    font-size: 22px;
+    margin-top: 35px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.pay-address {
+    margin-top: 15px;
+    background: #D9D9D9;
+    height: 97px;
+    position: relative;
+}
+.pay-address .pay-address-text button{
+    border: none;
+    background: #D9D9D9;
+    color: #2F7AEB;
+    font-size: 25px;
+    margin-left: 16px;
+}
+.pay-address .pay-address-text #Label6{
+    font-size:20px;
+}
+
+.pay-address-choices {
+    width: 380px;
+    text-align: center;
+    border: 1px solid;
+    height: 373px;
+    padding-top: 32px;
+    font-size: 20px;
+    background: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.4s;
+    visibility: visible;
+}
+.pay-address-choices #button-close-address{
+    background: red;
+    color: white;
+    height: 40px;
+    width: 96px;
+    font-size: 22px;
+    margin-top:-20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

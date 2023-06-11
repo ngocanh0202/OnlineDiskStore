@@ -128,6 +128,7 @@
     <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
     <Content Include="css\master.css" />
+    <Content Include="css\pay-new.css" />
     <Content Include="detail.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -142,7 +143,8 @@
     <Content Include="image\GTAV.png" />
     <Content Include="image\spider-man.png" />
     <Content Include="image\Spider.png" />
-    <Content Include="javascript\even_random.js" />
+    <Content Include="javascript\even_method_pay.js" />
+    <Content Include="javascript\even_pay.js" />
     <Content Include="javascript\jquery.min.js" />
     <Content Include="owlcarousel\assets\ajax-loader.gif" />
     <Content Include="owlcarousel\assets\owl.carousel.css" />
@@ -154,6 +156,7 @@
     <Content Include="owlcarousel\assets\owl.video.play.png" />
     <Content Include="owlcarousel\owl.carousel.js" />
     <Content Include="owlcarousel\owl.carousel.min.js" />
+    <Content Include="pay.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -251,6 +254,13 @@
     </Compile>
     <Compile Include="master-page.Master.designer.cs">
       <DependentUpon>master-page.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pay.aspx.cs">
+      <DependentUpon>pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pay.aspx.designer.cs">
+      <DependentUpon>pay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

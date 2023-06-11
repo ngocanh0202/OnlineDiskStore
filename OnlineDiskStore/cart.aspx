@@ -74,7 +74,7 @@
             <div class="cart-total">
                 <div class="cart-total-1">
                     <div class="cart-total-1-1"><span>Tổng tiền</span><asp:Label CssClass="cart-total-1" ID="Label4" runat="server" Text="Label"></asp:Label></div>
-                    <asp:Button CssClass="cart-total-2" ID="Button1" runat="server" Text="Thanh toán" />
+                    <asp:Button CssClass="cart-total-2" ID="Button1" runat="server" Text="Thanh toán" OnClick="Button1_Click" />
                 </div>
             </div>
         </div>

@@ -32,7 +32,7 @@ namespace OnlineDiskStore
         }
         public void loaddatalist1()
         {
-            string sql = "select TOP 12 * from Product ";
+            string sql = "select TOP 12 * from Product order by productDistributeYear";
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();
         }

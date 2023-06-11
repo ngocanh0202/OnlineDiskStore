@@ -24,13 +24,14 @@ namespace OnlineDiskStore
         }
         private void loaddata()
         {
-            string sql = "SELECT Product.productImage, Product.productName, CartProduct.quanity, Product.productPrice, Product.productID FROM CartProduct JOIN Product ON CartProduct.productID = Product.productID GROUP BY Product.productImage, Product.productName, CartProduct.quanity, Product.productPrice, Product.productID";
+            string sql = "SELECT Product.productImage, Product.productName, CartProduct.quanity, Product.productPrice, Product.productID FROM CartProduct JOIN Product ON CartProduct.productID = Product.productID where CartProduct.cartID = '01' GROUP BY Product.productImage, Product.productName, CartProduct.quanity, Product.productPrice, Product.productID";
+            
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();
         }
         private void total()
         {
-            string sql = "SELECT SUM(Product.productPrice * CartProduct.Quanity) AS totalPrice FROM CartProduct JOIN Product ON CartProduct.productID = Product.productID";
+            string sql = "SELECT SUM(Product.productPrice * CartProduct.Quanity) AS totalPrice FROM CartProduct JOIN Product ON CartProduct.productID = Product.productID where CartProduct.cartID = '01'";
             object a = (object)ldc.count(sql);
             Label4.Text = a.ToString() + "VND";
         }
@@ -43,13 +44,13 @@ namespace OnlineDiskStore
                 Label Label2 = (Label)e.Item.FindControl("Label2");
                 Label Label1 = (Label)e.Item.FindControl("Label1");
                 Label Label5 = (Label)e.Item.FindControl("Label5");
-                string sql = "select productStockLevel from Product where productName = '"+Label1.Text+"'";
+                string sql = "select productStockLevel from Product,CartProduct where CartProduct.cartID = '01' and productName = '"+Label1.Text+"'";
                 int a = int.Parse(Label2.Text);
                 if (a < (int)ldc.count(sql))
                 {
                     a++;
                 }
-                string sqlcartproduct = "update CartProduct set Quanity = '"+a+"' where productID = '"+Label5.Text+"' ";
+                string sqlcartproduct = "update CartProduct set Quanity = '"+a+"' where cartID = '01' and productID = '"+Label5.Text+"' ";
                 ldc.command2(sqlcartproduct);
                 total();
                 Label2.Text = a.ToString();
@@ -63,7 +64,7 @@ namespace OnlineDiskStore
                 {
                     quantity--;
                 }
-                string sqlcartproduct = "update CartProduct set Quanity = '"+quantity+"' where productID = '"+Label5.Text+"'";
+                string sqlcartproduct = "update CartProduct set Quanity = '"+quantity+"' where cartID = '01' and productID = '"+Label5.Text+"'";
                 ldc.command2(sqlcartproduct);
                 total();
                 Label2.Text = quantity.ToString();
@@ -73,7 +74,7 @@ namespace OnlineDiskStore
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();
-            string sql = "delete from CartProduct where productID = '"+a+"'";
+            string sql = "delete from CartProduct where cartID = '01' and productID = '"+a+"'";
             ldc.command(sql, "xoa thanh cong", this);
             loaddata();
             total();
@@ -82,6 +83,11 @@ namespace OnlineDiskStore
         protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("home-page.aspx");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("pay.aspx");
         }
     }
 }
