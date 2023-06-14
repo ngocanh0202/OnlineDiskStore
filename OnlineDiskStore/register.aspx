@@ -56,7 +56,7 @@
                 <span style="color:black">Bạn đã có tài khoản?
                 </span>
                 <span>
-                    <asp:LinkButton ID="LinkButton1" OnClick="LinkButton1_Click" runat="server">Đăng nhập</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButton1" CausesValidation="false" OnClick="LinkButton1_Click" runat="server">Đăng nhập</asp:LinkButton>
                 </span>
             </div>
         </div>

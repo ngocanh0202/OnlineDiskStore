@@ -23,11 +23,23 @@ namespace OnlineDiskStore
         {
             Response.Redirect("login.aspx");
         }
+        // kiểm tra tên tài khoản bị trùng
+        private int checknameaccount()
+        {
+            string sql = "select count(*) from Customer where customerUserName = '"+TextBox3.Text+"' ";
+            if ((int)ldc.count(sql)!=0)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Tên tài khoản bị trùng')", true);
+                return 1;            
+            }
+            return 0;
+        }
         // Đăng ký
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
+                if (checknameaccount() == 1) return;
                 string sql = "select count(*) from Customer";
                 string newidcustomer = "" + GenerateRandomNumber()+((int)ldc.count(sql)+1);
                 string sql2 = "insert into Customer (customerID, customerUserName, customerPassword) values ('"+newidcustomer+"','"+TextBox3.Text+"','"+TextBox1.Text+"')";
