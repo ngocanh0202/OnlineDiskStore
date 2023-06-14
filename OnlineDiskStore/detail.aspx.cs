@@ -20,7 +20,8 @@ namespace OnlineDiskStore
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            loaddatadetail(Request.QueryString["id"]);
+            object id = Request.QueryString["id"];
+            loaddatadetail(id);
         }
         private void loaddatadetail(object a)
         {
@@ -34,8 +35,7 @@ namespace OnlineDiskStore
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();  
         }
-
-
+        // check kiểm tra xem còn sản phẩm để mua không
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -44,8 +44,41 @@ namespace OnlineDiskStore
                 Label Label2 = (Label)e.Item.FindControl("Label2");
                 Label2.Text = Label2.Text + "VND";
             }
-        }
+            checkstillforsale(e);
+            productnumbersold(e);
 
+        }
+        // lấy số sản phẩm được bán
+        private void productnumbersold(DataListItemEventArgs e)
+        {
+            string sql = "select sum(quantity) from ReceiptProduct where productID = '"+ Request.QueryString["id"].ToString()+ "' ";
+            Label Label8 = (Label)e.Item.FindControl("Label8");
+            object a = ldc.count(sql);
+            if (a != DBNull.Value)
+            {
+                Label8.Text = (int)a+" ";
+            }
+            else
+            {
+                Label8.Text = 0+" ";
+            }
+            
+        }
+        // check còn bán
+        private void checkstillforsale(DataListItemEventArgs e)
+        {
+            string sql = "select productStockLevel from Product where productID = '" + Request.QueryString["id"].ToString() + "'";
+            int a = (int)ldc.count(sql);
+            if (a == 0)
+            {
+                Button addtocart = (Button)e.Item.FindControl("addtocart");
+                addtocart.Visible = false;
+                Button buynow = (Button)e.Item.FindControl("buynow");
+                buynow.Visible = false;
+
+            }
+        }
+        // xử lý tăng giảm sản phẩm khi chuẩn thêm vào giỏ hàng
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             if(e.CommandName== "Increase")
@@ -69,30 +102,35 @@ namespace OnlineDiskStore
                 TextBox1.Text = quantity.ToString();
             }
         }
-
+        // xử lý sự kiện thêm vào giỏ hàng
         protected void addtocart_Click(object sender, EventArgs e)
         {
+            if (Session["customerID"] == null)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Bạn chưa đăng nhập tài khoản')", true);
+                return;
+            }
             Button btn = (Button)sender;
             DataListItem item = (DataListItem)btn.NamingContainer;
             TextBox txt = (TextBox)item.FindControl("TextBox1");
             int textbox11 = int.Parse(txt.Text);
             string id = ((Button)sender).CommandArgument.ToString();
-            string dem1sql = "select productStockLevel from Product where productID = '"+id+"'";
-            string dem2sql = "select count(*) from CartProduct where productID = '" + id + "'";
+            string dem1sql = "select productStockLevel from Product where productID = '"+id+"'"; // lấy số lượng sản phẩm
+            string idcarrt = "select cartID from Cart where CustomerID = '" + Session["customerID"] + "'"; // lấy ID cart của tài khoản
+            string dem2sql = "select count(*) from CartProduct where productID = '" + id + "' and cartID = '"+ldc.read(idcarrt, "cartID") +"'"; // số lượng sản phẩm đã thêm vào giỏ hàng 
 
             if ((int)ldc.count(dem2sql) == 0)
             {
-
-                string sql = "insert into CartProduct values('01','" + id + "','" + textbox11 + "')";
+                string sql = "insert into CartProduct values('"+ldc.read(idcarrt, "cartID") +"','" + id + "','" + textbox11 + "')";
                 ldc.command(sql, "Thêm vào giỏ hàng thành công", this);
             }
             else if ((int)ldc.count(dem2sql) > 0)
             {
-                string dem22sql = "select Quanity from CartProduct where productID = '" + id + "'";
+                string dem22sql = "select Quanity from CartProduct where productID = '" + id + "' and cartID = '"+ldc.read(idcarrt, "cartID") +"'";
                 if ((int)ldc.count(dem1sql) >= ((int)ldc.count(dem22sql) + textbox11))
                 {
                     int dem = (int)ldc.count(dem22sql) + textbox11;
-                    string sql = "update CartProduct set Quanity = '"+dem+"' where productID = '"+id+"'";
+                    string sql = "update CartProduct set Quanity = '"+dem+"' where productID = '"+id+"' and cartID= '"+ ldc.read(idcarrt, "cartID") + "' ";
                     ldc.command(sql, "Thêm vào giỏ hàng thành công", this);
                 }
                 else
@@ -102,20 +140,51 @@ namespace OnlineDiskStore
             }
 
         }
-
+        // chưa hoàn thiện
         protected void buynow_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(),"alerMessage", "alert('Chưa cập nhập chức năng này')", true);
         }
-
+        // vào giỏ hàng
         protected void cart_Click(object sender, ImageClickEventArgs e)
         {
-            Response.Redirect("cart.aspx");
-        }
 
+            if (Session["customerID"] == null)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Bạn chưa đăng nhập tài khoản')", true);
+            }
+            else
+            {
+                SqlDataReader dr;
+                string sql = "select cartID from Cart where customerID = '" + Session["customerID"] +"'";
+                string idcart = "";
+                SqlCommand cm = new SqlCommand(sql, ldc.cn);
+                ldc.cn.Open();
+                dr = cm.ExecuteReader();
+                if (dr.Read())
+                {
+                    idcart = dr["cartID"].ToString();
+                }
+                ldc.cn.Close();
+                Response.Redirect("cart.aspx?id=" + idcart);
+            }
+        }
+        // quay lại home page
         protected void logo_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("home-page.aspx");
+        }
+        // tài khoản
+        protected void account_Click(object sender, ImageClickEventArgs e)
+        {
+            if (Session["customerID"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+            else
+            {
+                Response.Redirect("account.aspx");
+            }
         }
     }
 }

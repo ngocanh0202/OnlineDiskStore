@@ -33,7 +33,7 @@
                 </div>
                 <div class="account">
                     <div class="account-1">
-                        <asp:ImageButton ID="account" runat="server" ImageUrl="icons/logo-account.png" />
+                        <asp:ImageButton ID="account" runat="server" OnClick="account_Click" ImageUrl="icons/logo-account.png" />
                     </div>
                     <div class="account-2">
                         <p>Tài khoản</p>
@@ -56,7 +56,7 @@
                                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
                                             </div>
                                             <div class="detail-content-information-1-sold">
-                                                <span>Đã bán</span>
+                                                <asp:Label ID="Label8" runat="server" Text=""></asp:Label><span>Đã bán</span>
                                             </div>
                                             <div class="detail-content-information-1-content_price"><h1>GIÁ TIỀN</h1></div>
                                             <div class="detail-content-information-1-price">

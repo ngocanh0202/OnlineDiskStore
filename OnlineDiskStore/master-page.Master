@@ -34,7 +34,7 @@
                 </div>
                <div class="account">
                    <div class="account-1">
-                       <asp:ImageButton ID="account" runat="server" ImageUrl="icons/logo-account.png" />
+                       <asp:ImageButton ID="account" runat="server" ImageUrl="icons/logo-account.png" OnClick="account_Click" />
                    </div>
                    <div class="account-2">
                        <p>Tài khoản</p>

@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="cart-content-product">
-                <asp:DataList ID="DataList1" runat="server" RepeatColumns="1" OnItemCommand="DataList1_ItemCommand">
+                <asp:DataList ID="DataList1" runat="server" RepeatColumns="1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand">
                     <ItemTemplate>
                         <div class="cart-content-product-1">
                             <div class="cart-content-information-image">
@@ -73,8 +73,13 @@
             </div>
             <div class="cart-total">
                 <div class="cart-total-1">
-                    <div class="cart-total-1-1"><span>Tổng tiền</span><asp:Label CssClass="cart-total-1" ID="Label4" runat="server" Text="Label"></asp:Label></div>
-                    <asp:Button CssClass="cart-total-2" ID="Button1" runat="server" Text="Thanh toán" OnClick="Button1_Click" />
+                    <div class="cart-total-1-1">
+                            <asp:Label ID="Label6" runat="server" Text="Tổng tiền"></asp:Label>                                      
+                            <asp:Label CssClass="cart-total-1" ID="Label4" runat="server" Text="Label"></asp:Label> 
+                    </div>
+                    <div style="width:307px">
+                        <asp:Button CssClass="cart-total-2" ID="Button1" runat="server" Text="Thanh toán" OnClick="Button1_Click" />
+                    </div>                  
                 </div>
             </div>
         </div>

@@ -142,6 +142,7 @@
 .open-pay-voucher-Choices_voucher {
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
+    z-index:2
 }
 #DropDownList1 {
     width: 245px;
@@ -196,10 +197,12 @@
     transform: translate(-50%, -50%) scale(0.1);
     transition: transform 0.4s;
     visibility:hidden;
+   
 }
 .open-pay-method-pay-choices {
     visibility: visible;
     transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
 }
 #DropDownList2{
     text-align:center;
@@ -219,6 +222,7 @@
     background: #D9D9D9;
     height: 97px;
     position: relative;
+    z-index:1;
 }
 .pay-address .pay-address-text button{
     border: none;
@@ -230,28 +234,74 @@
 .pay-address .pay-address-text #Label6{
     font-size:20px;
 }
+#Label6 {
+    margin-left: 23px;
+}
 
 .pay-address-choices {
     width: 380px;
     text-align: center;
     border: 1px solid;
-    height: 373px;
+    height: 455px;
     padding-top: 32px;
     font-size: 20px;
     background: white;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(0.1);
     transition: transform 0.4s;
-    visibility: visible;
+    visibility: hidden;
+   
 }
-.pay-address-choices #button-close-address{
+.open-pay-address-choices {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
+}
+.pay-address-choices #Button1 {
     background: red;
     color: white;
     height: 40px;
     width: 96px;
     font-size: 22px;
-    margin-top:-20px;
+    margin-top: -20px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.pay-total {
+    margin-top: 15px;
+    background: #D9D9D9;
+    height: 230px;
+    position: relative;
+    z-index:1;
+}
+.pay-total .pay-total-text {
+    width: 291px;
+    height: 50px;
+    font-size: 25px;
+    margin-left: 25px;
+    color: red;
+}
+.pay-total-price {
+    position: absolute;
+    right: 0px;
+    color: red;
+    font-size: 20px;
+}
+.pay-button {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+.pay-button #Button2{
+    position: absolute;
+    right: 0;
+    height: 55px;
+    width: 260px;
+    font-size: 30px;
+    background: red;
+    color: white;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 }

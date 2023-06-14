@@ -30,12 +30,14 @@ namespace OnlineDiskStore
             loaddatalist5(dtrandom.Rows[3]["productID"]);
             
         }
+        // Chọn ra 12 sản phẩm giảm dần theo năm
         public void loaddatalist1()
         {
-            string sql = "select TOP 12 * from Product order by productDistributeYear";
+            string sql = "select TOP 12 * from Product order by productDistributeYear DESC";
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();
         }
+        // radom
         public void loaddatalist2(object a)
         {
             string id = a.ToString();
@@ -43,6 +45,7 @@ namespace OnlineDiskStore
             DataList2.DataSource = ldc.getdata(sql);
             DataList2.DataBind();
         }
+        // random
         public void loaddatalist3(object a)
         {
             string id = a.ToString();
@@ -50,6 +53,7 @@ namespace OnlineDiskStore
             DataList3.DataSource = ldc.getdata(sql);
             DataList3.DataBind();
         }
+        // random
         public void loaddatalist4(object a)
         {
             string id = a.ToString();
@@ -57,6 +61,7 @@ namespace OnlineDiskStore
             DataList4.DataSource = ldc.getdata(sql);
             DataList4.DataBind();
         }
+        // random
         public void loaddatalist5(object a)
         {
             string id = a.ToString();
@@ -64,43 +69,44 @@ namespace OnlineDiskStore
             DataList5.DataSource = ldc.getdata(sql);
             DataList5.DataBind();
         }
+        // chọn 4 sản phâm ngẫu nhiên
         public void loaddatarandom()
         {
             dtrandom = new DataTable();
             string sql = "SELECT TOP 4 * FROM Product ORDER BY NEWID();";
             dtrandom = ldc.getdata(sql);
         }
-
+        // click image
         protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();
             Response.Redirect("detail.aspx?id="+a);
         }
-
+        // click image
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             string a = ((LinkButton)sender).CommandArgument.ToString();
             Response.Redirect("detail.aspx?id=" + a);
         }
-
+        // click image
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();
             Response.Redirect("detail.aspx?id=" + a);
         }
-
+        // click image
         protected void ImageButton1_Click1(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();
             Response.Redirect("detail.aspx?id=" + a);
         }
-
+        // click image
         protected void ImageButton1_Click2(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();
             Response.Redirect("detail.aspx?id=" + a);
         }
-
+        // click image
         protected void ImageButton1_Click3(object sender, ImageClickEventArgs e)
         {
             string a = ((ImageButton)sender).CommandArgument.ToString();

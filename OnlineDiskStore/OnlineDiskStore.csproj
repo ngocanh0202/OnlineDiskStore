@@ -44,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -105,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="account.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -127,8 +131,10 @@
     <Content Include="css\cart.css" />
     <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
+    <Content Include="css\login.css" />
     <Content Include="css\master.css" />
     <Content Include="css\pay-new.css" />
+    <Content Include="css\register.css" />
     <Content Include="detail.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -143,9 +149,11 @@
     <Content Include="image\GTAV.png" />
     <Content Include="image\spider-man.png" />
     <Content Include="image\Spider.png" />
+    <Content Include="javascript\even_address.js" />
     <Content Include="javascript\even_method_pay.js" />
     <Content Include="javascript\even_pay.js" />
     <Content Include="javascript\jquery.min.js" />
+    <Content Include="login.aspx" />
     <Content Include="owlcarousel\assets\ajax-loader.gif" />
     <Content Include="owlcarousel\assets\owl.carousel.css" />
     <Content Include="owlcarousel\assets\owl.carousel.min.css" />
@@ -157,6 +165,7 @@
     <Content Include="owlcarousel\owl.carousel.js" />
     <Content Include="owlcarousel\owl.carousel.min.js" />
     <Content Include="pay.aspx" />
+    <Content Include="register.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -215,12 +224,20 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="updatebank.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="cart.aspx.cs">
@@ -247,6 +264,13 @@
     <Compile Include="home-page.aspx.designer.cs">
       <DependentUpon>home-page.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="lopdungchung.cs" />
     <Compile Include="master-page.Master.cs">
       <DependentUpon>master-page.Master</DependentUpon>
@@ -263,6 +287,13 @@
       <DependentUpon>pay.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -276,6 +307,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="updatebank.aspx.cs">
+      <DependentUpon>updatebank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updatebank.aspx.designer.cs">
+      <DependentUpon>updatebank.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

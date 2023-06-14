@@ -69,11 +69,11 @@
             <div class="pay-voucher-Choices_voucher" id="pay-voucher-Choices_voucher-id">
                 <h1>Chọn voucher</h1>
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                    <asp:ListItem Text="Chưa chọn">
+                    <asp:ListItem Value="0" Text="Chưa chọn">
                     </asp:ListItem>
-                    <asp:ListItem Text="Free Ship">
+                    <asp:ListItem Value="1" Text="Free Ship">
                     </asp:ListItem>
-                    <asp:ListItem Text="Giảm 30% đơn giá">
+                    <asp:ListItem Value="2" Text="Giảm 30% đơn giá">
                     </asp:ListItem>
                 </asp:DropDownList>
                 <br />
@@ -92,8 +92,9 @@
             <div class="pay-method-pay-choices" id="pay-method-pay-choices-id">
                 <h1>Chọn phương thức thanh toán</h1>
                 <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
-                    <asp:ListItem Text="Thanh toán khi có hàng"></asp:ListItem>
-                    <asp:ListItem Text="Thanh toán bằng thẻ đã đăng nhập"></asp:ListItem>
+                    <asp:ListItem Value="0">Chọn phương thức thanh toán</asp:ListItem>
+                    <asp:ListItem Value="1" Text="Thanh toán khi có hàng"></asp:ListItem>
+                    <asp:ListItem Value="2" Text="Thanh toán bằng thẻ"></asp:ListItem>
                 </asp:DropDownList>
                 <br />
                 <button type="button" id="button-close-method-pay" onclick="closeevenmethodpay()">Chốt</button>
@@ -103,34 +104,70 @@
                 <div class="pay-address-text">
                     <button type="button" onclick="openchoiceaddress()">Địa chỉ giao hàng</button>
                 </div>
-                <asp:Label ID="Label6" runat="server" Font-Size="20px" Text=""></asp:Label>
+                <div>
+                    <asp:Label ID="Label6" runat="server" Font-Size="20px" Text=""></asp:Label>
+                </div>
             </div>
             <div class="pay-address-choices" id="pay-address-choices-id">
                 <div class="pay-address-choices-tinh">
-                    <span>Tỉnh/Thành phố</span>
-                    <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                    <span>tỉnh/thành phố</span>
+                    <asp:DropDownList ID="DropDownList3" runat="server" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
+                        <asp:ListItem Text="Chọn tỉnh/thành phố" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Đà Nẵng"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <br />
-                <div class="pay-address-choices-tinh-quan">
-                    <span>Quận/ Huyện</span>
-                    <asp:DropDownList ID="DropDownList4" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+                <div class="pay-address-choices-huyen-quan">
+                    <span>quận/huyện</span>
+                    <asp:DropDownList ID="DropDownList4" runat="server" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged">
+                        <asp:ListItem Text="Chọn Quận/Huyện" Value="0"></asp:ListItem>
                         <asp:ListItem Text="Quận Hải Châu"></asp:ListItem>
-                        <asp:ListItem Text="Quận liên chiếu"></asp:ListItem>
+                        <asp:ListItem Text="Quận Liên Chiếu"></asp:ListItem>
                     </asp:DropDownList>
                 </div>
                 <br />
                 <div class="pay-address-choices-phuong-xa">
+                    <span>phường/xã</span>
+                    <asp:DropDownList ID="DropDownList5" runat="server" OnSelectedIndexChanged="DropDownList5_SelectedIndexChanged">
+                        <asp:ListItem Text="Chọn Phường/Xã" Value="0"></asp:ListItem>
+                        <asp:ListItem Text="Xã Hòa Bắc"></asp:ListItem>
+                        <asp:ListItem Text="Xã Hòa Châu"></asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+
+                <br />
+                <div class="pay-address-choices-phuong-xa">
                     <span>Nhập thông tin chi tiết địa chỉ</span>
-                    <asp:TextBox ID="TextBox1" runat="server" Width="300px" Height="110px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" TextMode="MultiLine" runat="server" OnTextChanged="TextBox1_TextChanged" Width="300px" Height="110px"></asp:TextBox>
                 </div>
                 <br />
-                <button type="button" id="button-close-address"  onclick="closechoiceaddress()">Chốt</button>
+                <asp:Button ID="Button1" runat="server" Text="Chốt" OnClick="Button1_Click" />
+                <%--<button type="button" id="button-close-address" onclick="closechoiceaddress()">Chốt</button>--%>
+            </div>
+            <!---------------------------------------------------------->
+            <div class="pay-total">
+                <div class="pay-total-text">
+                    <p>Tổng tiền cần thanh toán</p>
+                </div>
+                <div class="pay-total-price">
+                    <span>Tổng tiền đơn hàng: +</span><asp:Label ID="lb_price_product" runat="server" Text=""></asp:Label><span>VND</span>
+                    <br />
+                    <span>Tiền vận chuyển: +</span><asp:Label ID="Label8" runat="server" Text="40000"></asp:Label><span>VND</span>
+                    <br />
+                    <asp:Label ID="Label9" runat="server" Visible="false" Text="Voucher: -"></asp:Label><asp:Label ID="Label10" runat="server" Text=""></asp:Label><asp:Label ID="Label7" runat="server" Visible="false" Text="VND"></asp:Label>
+                    <br />
+                    <span>------------------------------------</span>
+                    <br />
+                    <span>Tổng Tiền:</span><asp:Label ID="lb_total" runat="server" Text=""></asp:Label><asp:Label ID="Label11" runat="server" Text="VND"></asp:Label>
+                </div>
+            </div>
+            <div class="pay-button">
+                <asp:Button ID="Button2" runat="server" Text="Thanh Toán" OnClick="Button2_Click" />
             </div>
         </div>
         <script src="javascript/even_pay.js"></script>
         <script src="javascript/even_method_pay.js"></script>
+        <script src="javascript/even_address.js"></script>
     </form>
 </body>
 </html>

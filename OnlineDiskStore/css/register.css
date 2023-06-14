@@ -1,0 +1,73 @@
+﻿body {
+}
+.container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.dangky {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.sub {
+    text-align: center;
+}
+
+.hang {
+    display: flex;
+    width: 1300px;
+    margin-bottom: 10px;
+}
+
+.hang .thongtin {
+    flex: 15;
+}
+
+.hang .nhap {
+    flex: 85;
+}
+
+.hang .thongtin p {
+    margin-top: 0px;
+}
+
+.hang .thongtin {
+    margin: 0px;
+    font-size:20px;
+}
+
+.bd {
+    border-left: 1px solid rgb(203, 196, 191);
+    padding-left: 7px;
+}
+
+#Button1 {
+    width: 165px;
+    height: 35px;
+    background: red;
+    color: white;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+span {
+   
+}
+.dangky {
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#LinkButton1{
+    color:blue;
+    text-decoration:none;
+}
+.register-input {
+    background: #D9D9D9;
+}
+.register-2 {
+    margin-top: 10px;
+    font-size: 18px;
+}
