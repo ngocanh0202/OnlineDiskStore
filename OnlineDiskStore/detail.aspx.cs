@@ -186,5 +186,14 @@ namespace OnlineDiskStore
                 Response.Redirect("account.aspx");
             }
         }
+
+        protected void image_Click(object sender, ImageClickEventArgs e)
+        {
+            if(search.Text != "")
+            {
+                string a = search.Text;
+                Response.Redirect("search2.aspx?name=" + a);
+            }       
+        }
     }
 }

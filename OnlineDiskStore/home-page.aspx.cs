@@ -24,11 +24,19 @@ namespace OnlineDiskStore
             }
             loaddatalist1();
             loaddatarandom();
+            loaddatalist6();
             loaddatalist2(dtrandom.Rows[0]["productID"]);
             loaddatalist3(dtrandom.Rows[1]["productID"]);
             loaddatalist4(dtrandom.Rows[2]["productID"]);
             loaddatalist5(dtrandom.Rows[3]["productID"]);
             
+        }
+        // Chọn ra 6 sản phẩm vừa mới cập nhập
+        public void loaddatalist6()
+        {
+            string sql = "select TOP 6 * from Product order by productID DESC";
+            DataList6.DataSource = ldc.getdata(sql);
+            DataList6.DataBind();
         }
         // Chọn ra 12 sản phẩm giảm dần theo năm
         public void loaddatalist1()

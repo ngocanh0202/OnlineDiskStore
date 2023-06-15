@@ -17,10 +17,11 @@
                 <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" OnClick="logo_Click" />
                 <div class="search">
                     <div class="search-1">
-                        <input id="search" type="text" placeholder="Tìm kiếm" />
+                        <%--<input id="search" type="text" placeholder="Tìm kiếm" />--%>
+                        <asp:TextBox ID="search" placeholder="Tìm kiếm" runat="server"></asp:TextBox>
                     </div>
                     <div class="search-2">
-                        <asp:ImageButton ID="image" runat="server" ImageUrl="icons/logo-timkiem.png" />
+                        <asp:ImageButton ID="image" runat="server" ImageUrl="icons/logo-timkiem.png" OnClick="image_Click" />
                     </div>
                 </div>
                 <div class="cart">

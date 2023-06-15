@@ -18,10 +18,11 @@
                 <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" OnClick="logo_Click" />
                 <div class="search">
                     <div class="search-1">
-                        <input id="search" type="text" placeholder="Tìm kiếm"  />
+                        <%--<input id="search" type="text" placeholder="Tìm kiếm"   />--%>
+                        <asp:TextBox ID="search" runat="server" placeholder="Tìm kiếm" Text="" ></asp:TextBox>
                     </div>
                     <div class="search-2">
-                        <asp:ImageButton ID="image" runat="server" ImageUrl="icons/logo-timkiem.png" />
+                        <asp:ImageButton ID="image" runat="server" ImageUrl="icons/logo-timkiem.png" OnClick="image_Click" />
                     </div>
                 </div>
                 <div class="cart">
@@ -61,36 +62,36 @@
                                 <tr>
                                     <td>
                                         <p>
-                                            <asp:LinkButton ID="hanhdong" runat="server">Hành động</asp:LinkButton>
+                                            <asp:LinkButton ID="hanhdong" runat="server" CommandArgument="Hành động" OnClick="hanhdong_Click">Hành động</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="tritue" runat="server">Trí tuệ</asp:LinkButton>
+                                            <asp:LinkButton ID="tritue" CommandArgument="Trí tuệ" OnClick="tritue_Click" runat="server">Trí tuệ</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="doikhang" runat="server">Đối kháng</asp:LinkButton>
+                                            <asp:LinkButton ID="doikhang" CommandArgument="Đối kháng" OnClick="doikhang_Click" runat="server">Đối kháng</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="danhtheoluot" runat="server">Đánh theo lượt</asp:LinkButton>
+                                            <asp:LinkButton ID="danhtheoluot" CommandArgument="Đánh theo lượt" OnClick="danhtheoluot_Click" runat="server">Đánh theo lượt</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="chienthuat" runat="server">Chiến thuật</asp:LinkButton>
+                                            <asp:LinkButton ID="chienthuat" CommandArgument="Chiến thuật" OnClick="chienthuat_Click" runat="server">Chiến thuật</asp:LinkButton>
                                         </p>
                                     </td>
                                     <td>
                                         <p>
-                                            <asp:LinkButton ID="nhapvai" runat="server">Nhập vai</asp:LinkButton>
+                                            <asp:LinkButton ID="nhapvai" CommandArgument="Nhập vai" OnClick="nhapvai_Click" runat="server">Nhập vai</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="kinhdi" runat="server">Kinh dị</asp:LinkButton>
+                                            <asp:LinkButton ID="kinhdi" CommandArgument="Kinh dị" OnClick="kinhdi_Click" runat="server">Kinh dị</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="bansung" runat="server">Bắn súng</asp:LinkButton>
+                                            <asp:LinkButton ID="bansung" CommandArgument="Bắn súng" OnClick="bansung_Click" runat="server">Bắn súng</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="thethao" runat="server">Thể thao</asp:LinkButton>
+                                            <asp:LinkButton ID="thethao" CommandArgument="Thể thao" OnClick="thethao_Click" runat="server">Thể thao</asp:LinkButton>
                                         </p>
                                         <p>
-                                            <asp:LinkButton ID="khac" runat="server">Khác</asp:LinkButton>
+                                            <asp:LinkButton ID="khac" CommandArgument="0" OnClick="khac_Click" runat="server">Khác</asp:LinkButton>
                                         </p>
                                     </td>
                                 </tr>
@@ -111,7 +112,7 @@
                                </td>
                                 <td style="padding:20px 0px 0px 0px;margin-top:15px; font-size:16px">
                                     <asp:DropDownList ID="DropDownList1" runat="server" Width="129px">
-                                        <asp:ListItem>Tất cả thể loại</asp:ListItem>
+                                        <asp:ListItem Value="0">Tất cả thể loại</asp:ListItem>
                                     </asp:DropDownList>   
                                 </td>
                             </tr>
@@ -121,16 +122,13 @@
                                 </td>
                                 <td style="padding:20px 0px 0px 0px; margin-top:15px;font-size:16px">
                                     <asp:DropDownList ID="DropDownList2" runat="server" Width=129px >
-                                        <asp:ListItem>2023</asp:ListItem>
-                                        <asp:ListItem>2022</asp:ListItem>
-                                        <asp:ListItem>2021</asp:ListItem>
-                                        <asp:ListItem>2020</asp:ListItem>
+                                        <asp:ListItem Value="0">Chọn năm</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" style="padding:20px 0px 15px 0px; text-align:center">
-                                    <asp:Button ID="filter" runat="server" Text="LỌC"  />
+                                    <asp:Button ID="filter" runat="server" Text="LỌC" OnClick="filter_Click"  />
                                 </td>
                             </tr>
                         </table>

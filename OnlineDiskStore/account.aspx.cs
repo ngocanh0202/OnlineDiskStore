@@ -13,5 +13,10 @@ namespace OnlineDiskStore
         {
 
         }
+        // chuyển về home page
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
+        }
     }
 }
