@@ -1,0 +1,241 @@
+﻿
+body {
+}
+
+.themsp {
+    height: 190px;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.button_upload_file {
+    width: 254px;
+    height: 39px;
+    background: #7D7878;
+    border: 3px solid #000000;
+    color:white;
+}
+#Image_btn_them {
+    height: 100px;
+}
+
+.themsp_Image {
+    margin: 50px 40px 40px 40px;
+}
+
+.themsp_line {
+    background-color: orangered;
+    margin-top: 15px;
+    width: 4px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.themsp_chu {
+    height: 110px;
+    width: 800px;
+}
+
+.chu_trang {
+    margin-right: 445px;
+    margin-top: 65px;
+    text-align: center;
+    font-size: 40px;
+    color: orangered;
+}
+
+.themsp_taikhoan {
+    position: relative;
+    text-align: center;
+    margin-left: 250px;
+    width: 550px;
+}
+
+.themsp_hinh {
+}
+
+.themsp_tk {
+    margin-left: 35px;
+    font-size: 24px;
+}
+
+.account_tt_tk, .acount_tc, .acount_ds {
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#Image_btn_tk {
+    height: 30px;
+    width: 30px;
+}
+
+#Image1 {
+    height: 160px;
+    width: 150px;
+    margin: 8px 10px 8px 8px;
+    display: flex;
+}
+
+.sanpham {
+    width: 35%;
+    text-align: center;
+}
+
+.sanpham_chu {
+}
+
+.them {
+    font-size: 25px;
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.chu {
+    font-size: 28px;
+}
+
+.sanpham_anh {
+    background-color: #D9D9D9;
+    border: groove;
+    width: 170px;
+    height: 180px;
+    margin-left: 138px;
+}
+
+.sanpham_btn {
+    margin-top: 40px;
+}
+
+#btn_taianh {
+}
+
+.sanpham_line {
+    background-color: #000000;
+    width: 3px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.thongtin {
+    width: 65%;
+}
+
+.thongtin_list_1, .thongtin_list_2, .thongtin_4_21, .thongtin_4_11 {
+    list-style: none;
+    text-align: left;
+    width: 205px;
+}
+
+.thongtin_1 {
+    display: flex;
+}
+
+.thongtin_2 {
+    font-size: 32px;
+    margin-left: 35px;
+}
+
+#txt_tensanpham, #txt_giaien, #txt_soluong, #txt_theloai, #txt_namphaphanh, #txt_mota {
+    background-color: #D9D9D9;
+    font-size: 20px;
+}
+
+.thongtin_3 {
+    height: 4px;
+    background-color: orangered;
+    margin-left: 35px;
+}
+
+#txt_mota {
+    padding-top: 10px;
+}
+
+.thongtin_4 {
+    margin-top: 40px;
+    display: flex;
+}
+
+.thongtin_lable, .thongtin_4_1 {
+    text-align: center;
+}
+
+.them_btn {
+    text-align: center;
+    margin-top: 35px;
+}
+
+#btn_themsp {
+    background-color: orangered;
+}
+
+li {
+    margin-top: 10px;
+}
+
+.account {
+    list-style: none;
+}
+
+.account_linkbtn {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 25%;
+    font-size: 22px;
+    background-color: #D9D9D9;
+    height: 150px;
+    width: 250px;
+    transform-origin: 50% top;
+    animation: account ease-in 0.3s;
+    font-weight: bolder;
+    display: none;
+}
+
+.account_them--has--account:hover .account_linkbtn {
+    display: block;
+}
+
+.account_linkbtn::before {
+    content: "";
+    border: 20px solid;
+    border-color: transparent transparent #D9D9D9 transparent;
+    position: absolute;
+    right: 110px;
+    top: -40px;
+}
+
+@keyframes account {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.button1_css {
+    background-color: Red;
+    font-size: 17px;
+    height: 48px;
+    width: 114px;
+    color: white;
+}
+
+.btn_themsp {
+    font-size: 28px;
+    height: 72px;
+    width: 337px;
+    color: white;
+    background-color: orangered;
+}
+.DropDownList1 {
+    background-color: #D9D9D9;
+    width: 400px;
+    text-align: center;
+}

@@ -108,7 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="account.aspx" />
+    <Content Include="account_user.aspx" />
+    <Content Include="add_product.aspx" />
+    <Content Include="become_seller.aspx" />
     <Content Include="cart.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -127,8 +129,10 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="css\account.css" />
+    <Content Include="css\account_user_new.css" />
+    <Content Include="css\add_product_new.css" />
     <Content Include="css\banner.css" />
+    <Content Include="css\become_seller.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
@@ -237,15 +241,29 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="account.aspx.cs">
-      <DependentUpon>account.aspx</DependentUpon>
+    <Compile Include="account_user.aspx.cs">
+      <DependentUpon>account_user.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="account.aspx.designer.cs">
-      <DependentUpon>account.aspx</DependentUpon>
+    <Compile Include="account_user.aspx.designer.cs">
+      <DependentUpon>account_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="add_product.aspx.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="add_product.aspx.designer.cs">
+      <DependentUpon>add_product.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="become_seller.aspx.cs">
+      <DependentUpon>become_seller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="become_seller.aspx.designer.cs">
+      <DependentUpon>become_seller.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
