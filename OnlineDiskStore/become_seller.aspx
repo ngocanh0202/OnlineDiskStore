@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <link rel="stylesheet" hred="css/become_seller.css" />
+    <link rel="stylesheet" href="css/become_seller_new.css" />
 </head>
 <body>
     <form id="form1" runat="server">

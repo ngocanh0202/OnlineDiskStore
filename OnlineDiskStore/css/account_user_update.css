@@ -1,0 +1,64 @@
+﻿body {
+}
+
+.account_big_user_table {
+    width: 550px;
+    font-size: 18px;
+}
+
+.account_big_user_information-1 {
+    width: 200px;
+}
+
+.account-big-user-button-update {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.account-big-user-button-update button {
+    background: red;
+    color: white;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.account-big-user-button-update button:hover {
+    background: white;
+    color: red;
+    width: 150px;
+    height: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.account-customer-update {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: transform 0.4s;
+    border: 1px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    width: 430px;
+    height: 480px;
+    text-align: center;
+    visibility: hidden;
+    background: white;
+}
+.open-account-customer-update {
+    transform: translate(-50%,-50%) scale(1);
+    visibility: visible;
+}
+.account-customer-update .account-customer-update-1 {
+    text-align:left;
+    width: 176px;
+}
+.account-customer-update .account-customer-update-2 {
+    text-align:left;
+}
+.btn_password{
+    margin-left: 8px;
+    color: white;
+    background: red;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

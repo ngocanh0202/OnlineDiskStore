@@ -108,7 +108,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="account_user.aspx" />
+    <Content Include="accountreceipt.aspx" />
+    <Content Include="accountuser.aspx" />
+    <Content Include="account_store.aspx" />
+    <Content Include="account_warehouse.aspx" />
     <Content Include="add_product.aspx" />
     <Content Include="become_seller.aspx" />
     <Content Include="cart.aspx" />
@@ -129,10 +132,14 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="css\account_user_new.css" />
+    <Content Include="css\account.css" />
+    <Content Include="css\account_receipt.css" />
+    <Content Include="css\account_receipt_detail.css" />
+    <Content Include="css\account_store.css" />
+    <Content Include="css\account_user_update.css" />
     <Content Include="css\add_product_new.css" />
     <Content Include="css\banner.css" />
-    <Content Include="css\become_seller.css" />
+    <Content Include="css\become_seller_new.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
@@ -204,6 +211,8 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="owlcarousel\README.md" />
     <Content Include="master-page.Master" />
+    <Content Include="account.Master" />
+    <Content Include="account_detail_recetipt.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -241,12 +250,40 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="account_user.aspx.cs">
-      <DependentUpon>account_user.aspx</DependentUpon>
+    <Compile Include="account.Master.cs">
+      <DependentUpon>account.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="account_user.aspx.designer.cs">
-      <DependentUpon>account_user.aspx</DependentUpon>
+    <Compile Include="account.Master.designer.cs">
+      <DependentUpon>account.Master</DependentUpon>
+    </Compile>
+    <Compile Include="accountreceipt.aspx.cs">
+      <DependentUpon>accountreceipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="accountreceipt.aspx.designer.cs">
+      <DependentUpon>accountreceipt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="accountuser.aspx.cs">
+      <DependentUpon>accountuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="accountuser.aspx.designer.cs">
+      <DependentUpon>accountuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account_store.aspx.cs">
+      <DependentUpon>account_store.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account_store.aspx.designer.cs">
+      <DependentUpon>account_store.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="account_warehouse.aspx.cs">
+      <DependentUpon>account_warehouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account_warehouse.aspx.designer.cs">
+      <DependentUpon>account_warehouse.aspx</DependentUpon>
     </Compile>
     <Compile Include="add_product.aspx.cs">
       <DependentUpon>add_product.aspx</DependentUpon>
@@ -359,6 +396,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="account_detail_recetipt.aspx.cs">
+      <DependentUpon>account_detail_recetipt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="account_detail_recetipt.aspx.designer.cs">
+      <DependentUpon>account_detail_recetipt.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

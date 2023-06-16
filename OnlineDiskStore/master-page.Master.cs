@@ -85,7 +85,7 @@ namespace OnlineDiskStore
             }
             else
             {
-                Response.Redirect("account_user.aspx");
+                Response.Redirect("accountuser.aspx");
             }
         }
         // button tìm kiếm

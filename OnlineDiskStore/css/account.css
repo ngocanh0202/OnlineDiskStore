@@ -1,0 +1,62 @@
+﻿body {
+}
+.container{
+    width:900px;
+}
+.account-customer-banner {
+    display: flex;
+    height: 120px;
+    margin-top: 20px;
+}
+.account-customer-banner-1 {
+    padding-top: 18px;
+    margin-left: 35px;
+    margin-right: 25px;
+}
+#Image1 {
+    height: 85px;
+}
+.account-customer-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 48px;
+    text-align: center;
+    color: #FF0000;
+    padding-top: 35px;
+    margin-left: 45px;
+}
+.account-customer-conntent {
+    display: flex;
+    height: 530px;
+}
+.account-customer-conntent-left .button_css {
+    border: none;
+    background: white;
+    border-bottom: 1px solid;
+    width: 100%;
+    margin-bottom: 6px;
+}
+.account-customer-conntent-left .button_css:hover{
+    border-bottom: 5px solid red;
+}
+.account-customer-content-line {
+    width: 3px;
+    height: 100%;
+    background: red;
+    margin-left: 35px;
+    margin-right: 35px;
+}
+.account-customer-logout{
+    margin-top:40px;
+    margin-bottom:40px;
+    text-align:center;
+}
+.Button5_logout {
+    background: red;
+    color: white;
+    width: 130px;
+    height: 50px;
+    font-size: 18px;
+}

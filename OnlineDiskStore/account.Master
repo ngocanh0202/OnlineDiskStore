@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="account.master.cs" Inherits="OnlineDiskStore.account1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/account.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="account-customer-banner">
+                <div class="account-customer-banner-1">
+                    <%--<asp:Image ID="Image1" runat="server" ImageUrl="~/icons/logo-image.png" />--%>
+                    <asp:ImageButton ID="Image1" OnClick="Image1_Click" ImageUrl="~/icons/logo-image.png" runat="server" />
+                </div>
+                <div class="account-customer-text">
+                    THÔNG TIN TÀI KHOẢN
+                </div>
+            </div>
+            <div class="account-customer-conntent">
+                <div class="account-customer-conntent-left">
+                    <asp:Button ID="Button1" CssClass="button_css" runat="server" OnClick="Button1_Click" Text="Thông tin tài khoản" />
+                    <br />
+                    <asp:Button ID="Button2" CssClass="button_css" runat="server" OnClick="Button2_Click" Text="Hóa đơn" />
+                    <br />
+                    <asp:Button ID="Button3" CssClass="button_css" runat="server" OnClick="Button3_Click" Text="Thông tin cửa hàng" />
+                    <br />
+                    <asp:Button ID="Button4" CssClass="button_css" runat="server" OnClick="Button4_Click" Text="Kho hàng" />
+                </div>
+                <div class="account-customer-content-line">
+                </div>
+                <div class="account-customer-content-right">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="account-customer-logout">
+                <asp:Button ID="Button5" runat="server" CssClass="Button5_logout" OnClick="Button5_Click" Text="ĐĂNG XUẤT" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

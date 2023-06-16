@@ -1,21 +1,65 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="account_user.aspx.cs" Inherits="OnlineDiskStore.account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/account.Master" AutoEventWireup="true" CodeBehind="accountuser.aspx.cs" Inherits="OnlineDiskStore.accountuser" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/account_user_new.css" />
-</head>
-<body>
-    <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div class="container">
-            <div class="account-customer-update">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="css/account_user_update.css" />
+    <div class="account_big_user">
+        <asp:DataList ID="DataList2" runat="server">
+            <ItemTemplate>
+                <table class="account_big_user_table">
+                    <tr>
+                        <td class="account_big_user_information-1">Tên Đăng Nhập:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("customerUserName") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="account_big_user_information-1">Mật khẩu:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label2" runat="server" Text="***********"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="account_big_user_information-1">Họ tên:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("customerName") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="account_big_user_information-1">Email:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("customerEmail") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="account_big_user_information-1">Địa chỉ:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("customerAddress") %>'></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="account_big_user_information-1">Số tài khoản:
+                        </td>
+                        <td class="account_big_user_information-2">
+                            <asp:Label ID="Label6" runat="server" Text='<%# Eval("customerBankNumber") %>'></asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+        </asp:DataList>
+        <div class="account-big-user-button-update">
+            <button type="button" onclick="openupdate()">CẬP NHẬP</button>
+            <div class="account-customer-update" id="account-customer-update-id">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <asp:DataList ID="DataList1" runat="server">
+                        <asp:DataList ID="DataList1" OnItemDataBound="DataList1_ItemDataBound" runat="server">
                             <ItemTemplate>
                                 <table style="width: 430px; height: 420px;">
                                     <tr>
@@ -114,8 +158,17 @@
                         </asp:DataList>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+                <button type="button" style="height:31px;width:66px;margin-top:10px" onclick="closeupdate()">Đóng</button>
             </div>
         </div>
-    </form>
-</body>
-</html>
+    </div>
+    <script>
+        let id = document.getElementById("account-customer-update-id");
+        function openupdate() {
+            id.classList.add("open-account-customer-update");
+        }
+        function closeupdate() {
+            id.classList.remove("open-account-customer-update");
+        }
+    </script>
+</asp:Content>

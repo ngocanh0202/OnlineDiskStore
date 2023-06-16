@@ -20,8 +20,15 @@ namespace OnlineDiskStore
         {
             if (IsPostBack) return;
             loaddata();
-            totalprice();
+            loadaddress();
+            totalprice();          
             totallb();
+        }
+        // lấy địa chỉ mặc định cho khách hàng
+        private void loadaddress()
+        {
+            string sql = "select customerAddress from customer where customerID = '" + Session["customerID"] +"' ";
+            Label6.Text = ldc.read(sql, "customerAddress");
         }
         // load dữ liệu tù cartproduct
         private void loaddata()
@@ -97,7 +104,7 @@ namespace OnlineDiskStore
                     object banknumber = ldc.count(sql);
                     if((int)banknumber == 0)
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Bạn chưa có thông tin về thẻ ngân hàng')", true);
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Bạn chưa có thông tin về thẻ ngân hàng, vui lòng cập nhập')", true);
                         Response.Redirect("updatebank.aspx");
                     }
                 }

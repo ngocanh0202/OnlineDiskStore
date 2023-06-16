@@ -1,0 +1,13 @@
+﻿body {
+}
+.receipt_css {
+    text-align: center;
+    height: 100%;
+}
+.link_button_id{
+    text-decoration:none;
+    color:black;
+}
+.link_button_id:hover{
+    color: red;
+}

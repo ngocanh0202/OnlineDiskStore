@@ -1,0 +1,55 @@
+﻿body {
+}
+.button_sellerID {
+    width: 240px;
+    height: 50px;
+    background: red;
+    color: white;
+    font-size: 19px;
+}
+.button_sellerID:hover{
+    background: white;
+    color: red;
+}
+.account_seller{
+    text-align:center;
+    font-size:20px;
+}
+.account_seller_1{
+    text-align:left;
+    width:280px;
+}
+.button_seller_update {
+    text-align: center;
+    margin-top: 25px;
+}
+.button_seller_update button{
+    background:red;
+    color:white;
+    height: 40px;
+    width: 110px;
+    font-size: 16px;
+}
+.button_seller_update button:hover{
+    background:white;
+    color:red;
+}
+.seller_information_update {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    transition: transform 0.4s;
+    border: 1px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    width: 430px;
+    height: 480px;
+    text-align: center;
+    visibility: visible;
+    background: white;
+}
+.open_seller_information_update {
+    transform: translate(-50%,-50%) scale(1);
+    visibility: hidden;
+}
