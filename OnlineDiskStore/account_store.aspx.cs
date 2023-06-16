@@ -81,8 +81,9 @@ namespace OnlineDiskStore
             TextBox txt_name = (TextBox)dtl.FindControl("txt_name");
             TextBox txt_cccd = (TextBox)dtl.FindControl("txt_cccd");
 
-            string sql = "update Seller set sellerCitizenIDNum = '"+txt_cccd.Text+"', sellerName = '"+txt_name.Text+"', sellerBankNumber = '"+ banknum_string + "', sellerBankName = '"+ txt_bankname.Text+ "' where sellerID = '" + Session["customerID"] +"'  ";
-            ldc.command(sql, "Cập nhập thành công", this);
+            string sql = "update Seller set sellerCitizenIDNum = N'"+txt_cccd.Text+"', sellerName = N'"+txt_name.Text+"', sellerBankNumber = N'"+ banknum_string + "', sellerBankName = N'"+ txt_bankname.Text+ "' where sellerID = '" + Session["customerID"] +"'  ";
+            ldc.command2(sql);
+            Response.Redirect("account_store.aspx");
         }
 
         protected void Button1_Click(object sender, EventArgs e)

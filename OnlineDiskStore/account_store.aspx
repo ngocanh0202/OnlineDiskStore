@@ -26,6 +26,9 @@
                 background: white;
                 color: red;
             }
+        .account-customer-update-1{
+            padding-left:8px;
+        }
     </style>
     <link rel="stylesheet" href="css/account_user_update.css" />
     <asp:Button ID="Button1" runat="server" CssClass="Button1_become_seller" Text="TRỞ THÀNH NGƯỜI BÁN HÀNG" OnClick="Button1_Click" />
