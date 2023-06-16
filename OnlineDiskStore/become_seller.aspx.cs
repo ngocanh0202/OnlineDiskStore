@@ -19,7 +19,8 @@ namespace OnlineDiskStore
             if (IsPostBack) return;
         }
 
-        protected void btn_dangky_Click(object sender, EventArgs e)
+
+        protected void btn_dangky_Click1(object sender, EventArgs e)
         {
             string sellerName = txt_Tencuahang.Text;
             string sellerCitizenIDNum = txt_cmnd.Text;
@@ -35,12 +36,12 @@ namespace OnlineDiskStore
 
             // Tạo câu truy vấn SQL để thêm dữ liệu vào CSDL
             string query = string.Format("INSERT INTO Seller (sellerID, sellerName, sellerCitizenIDNum, sellerBankNumber, sellerBankName) VALUES (N'{0}', N'{1}', N'{2}', N'{3}',N'{4}')",
-                Session["customerID"],sellerName, sellerCitizenIDNum, sellerBankNumber, sellerBankName);
-            string sql = "update Customer set sellerID = '"+ Session["customerID"] + "' where customerID = '"+ Session["customerID"] + "' ";
+                Session["customerID"], sellerName, sellerCitizenIDNum, sellerBankNumber, sellerBankName);
+            string sql = "update Customer set sellerID = '" + Session["customerID"] + "' where customerID = '" + Session["customerID"] + "' ";
             ldc.command(query, "Đăng ký thành công", this);
             ldc.command2(sql);
             Response.Redirect("account_store.aspx");
-            
+
         }
     }
 }

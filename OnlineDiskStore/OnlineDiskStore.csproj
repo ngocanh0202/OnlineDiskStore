@@ -139,7 +139,7 @@
     <Content Include="css\account_user_update.css" />
     <Content Include="css\add_product_new.css" />
     <Content Include="css\banner.css" />
-    <Content Include="css\become_seller_new.css" />
+    <Content Include="css\become_seller.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\detail_new.css" />
     <Content Include="css\home_page_new.css" />
@@ -242,6 +242,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="search2.aspx" />
     <Content Include="search_product.aspx" />
+    <Content Include="seller_detail_product.aspx" />
     <Content Include="Site.Master" />
     <Content Include="updatebank.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -368,6 +369,13 @@
     </Compile>
     <Compile Include="search_product.aspx.designer.cs">
       <DependentUpon>search_product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="seller_detail_product.aspx.cs">
+      <DependentUpon>seller_detail_product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="seller_detail_product.aspx.designer.cs">
+      <DependentUpon>seller_detail_product.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿body {
 }
+
 .logo_dangky {
     text-align: center;
 }
@@ -19,25 +20,12 @@
 .thongtin {
     height: 260px;
     margin-top: 50px;
-    display: flex;
 }
 
 .thongtin_lable {
     text-align: center;
     margin-left: 20%;
     font-size: 30px;
-}
-
-.thongtin_textbox {
-    margin-right: 20%;
-}
-
-.thongtin_list {
-    list-style: none;
-}
-
-.thongtin_listbox {
-    list-style: none;
 }
 
 #txt_Tencuahang, #txt_diachi, #txt_phone, #txt_mail, #txt_cmnd, #txt_tennganhang, #txt_tknganhang {
@@ -82,4 +70,23 @@ li {
 
 #btn_dangky {
     background-color: orangered;
+}
+.table {
+    height: 280px;
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    margin-left: 10px;
+    font-size: 28px;
+    border:none;
+}
+
+tr {
+    margin-bottom: 20px;
+}
+
+.table_nho {
+    width: 800px;
 }
