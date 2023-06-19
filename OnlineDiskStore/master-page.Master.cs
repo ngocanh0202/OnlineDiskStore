@@ -27,9 +27,7 @@ namespace OnlineDiskStore
         {
             if (Session["customerID"] != null)
             {
-                string idcart = "select cartID from Cart where CustomerID = '" + Session["customerID"] +"' ";
-                string a = ldc.read(idcart, "cartID");
-                string sql = "select count(productID) from CartProduct where cartID = '"+a+"'  ";
+                string sql = "select count(productID) from CartProduct where cartID = '" + Session["cartID"] +"'  ";
                 Label1.Text = ""+ldc.count(sql);
             }      
         }
@@ -47,18 +45,7 @@ namespace OnlineDiskStore
             }
             else
             {
-                SqlDataReader dr;
-                string sql = "select cartID from Cart where customerID = '" + Session["customerID"] +"'";
-                string idcart = "";
-                SqlCommand cm = new SqlCommand(sql, ldc.cn);
-                ldc.cn.Open();
-                dr = cm.ExecuteReader();
-                if (dr.Read())
-                {
-                    idcart = dr["cartID"].ToString();
-                }
-                ldc.cn.Close();
-                Response.Redirect("cart.aspx?id="+idcart);
+                Response.Redirect("cart.aspx?id=" + Session["cartID"]);
             }
             
         }
@@ -174,7 +161,6 @@ namespace OnlineDiskStore
         // Bộ lọc
         protected void filter_Click(object sender, EventArgs e)
         {
-            if (DropDownList1.SelectedValue == "0" && DropDownList2.SelectedValue == "0") return;
             Response.Redirect("search2?filtercategory="+DropDownList1.SelectedValue.ToString()+ "&filteryear=" + DropDownList2.SelectedValue.ToString());           
         }
     }

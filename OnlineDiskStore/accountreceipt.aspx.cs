@@ -22,7 +22,7 @@ namespace OnlineDiskStore
         private void loaddata()
         {
             /*string sql = "select receiptID,paymentDetail,createdDate,methodPay,totalPrice from Receipt where customerID = '" + Session["customerID"] + "' ";*/
-            string sql = "select * from Receipt where customerID = '" + Session["customerID"] +"' ";
+            string sql = "select top(8)* from Receipt where customerID = '" + Session["customerID"] + "' order by cast(receiptID as INT) desc";
             GridView1.DataSource = ldc.getdata(sql);
             GridView1.DataBind();
         }

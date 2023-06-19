@@ -45,6 +45,8 @@ namespace OnlineDiskStore
             }
             dr.Close();
             ldc.cn.Close();
+            string idcart = "select cartID from Cart where customerID = '" + Session["customerID"] +"'";
+            Session["cartID"] = ldc.read(idcart, "cartID");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Đăng nhập thành công')", true);
             Response.Redirect("home-page.aspx");
         }

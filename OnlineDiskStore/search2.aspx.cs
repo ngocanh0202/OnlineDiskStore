@@ -39,6 +39,11 @@ namespace OnlineDiskStore
                 string sql = "select * from Product where UPPER(productCategory) like N'" + category + "' and productDistributeYear = '" + year+"'";
                 DataList1.DataSource = ldc.getdata(sql);
                 DataList1.DataBind();
+            }else if (category == "0" && year == "0")
+            {
+                string sql = "select * from Product";
+                DataList1.DataSource = ldc.getdata(sql);
+                DataList1.DataBind();
             }
         }
         private void loadsearch()

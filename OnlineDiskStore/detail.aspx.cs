@@ -154,10 +154,14 @@ namespace OnlineDiskStore
             }
 
         }
-        // chưa hoàn thiện
+        // mua ngay
         protected void buynow_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(),"alerMessage", "alert('Chưa cập nhập chức năng này')", true);
+            string id = ((Button)sender).CommandArgument;
+            Button btn = (Button)sender;
+            DataListItem items = (DataListItem)btn.NamingContainer;
+            TextBox TextBox1 = (TextBox)items.FindControl("TextBox1");
+            Response.Redirect("buynow.aspx?idbuynow=" + id+"&quantitybuynow="+TextBox1.Text);
         }
         // vào giỏ hàng
         protected void cart_Click(object sender, ImageClickEventArgs e)
