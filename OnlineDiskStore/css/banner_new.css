@@ -54,7 +54,16 @@ body {
     position: absolute;
     left: 1068px;
 }
-
+.cart-1-1 {
+    position: absolute;
+    top: 0px;
+    left: 65px;
+    width: 23px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    text-align:center;
+}
 .cart .cart-2 p {
     font-family: 'Inter';
     font-weight: bold;

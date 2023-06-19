@@ -69,6 +69,7 @@ namespace OnlineDiskStore
                 ldc.command2(sqlcartproduct);
                 total(); // tính lại tổng tiền
                 Label2.Text = a.ToString();
+                UpdatePanel2.Update();
             }
             else if (e.CommandName == "de")
             {
@@ -84,6 +85,7 @@ namespace OnlineDiskStore
                 total();// tính lại tổng tiền
                 if(checkcartnumber()==1) { Button1.Visible = true; }
                 Label2.Text = quantity.ToString();
+                UpdatePanel2.Update();
             }
         }
         // xử lý khi xóa sản phâm trong giỏ hàng
@@ -93,10 +95,10 @@ namespace OnlineDiskStore
             string sql = "delete from CartProduct where cartID = '"+ Request.QueryString["id"].ToString() + "' and productID = '"+a+"'";
             ldc.command(sql, "xoa thanh cong", this);
             loaddata();  // load lại datalist
-            total(); // tính lại tổn g
+            total(); // tính lại tổng
             if (checkcartnumber() != 0) { Button1.Visible = true; } // kiểm tra số hàng để mở lại button thanh toán
             check(); // kiểm tra số lượng sản phẩm để mở tong tiền và button thanh toán
-           
+            UpdatePanel2.Update();
         }
 
         protected void ImageButton2_Click(object sender, ImageClickEventArgs e)

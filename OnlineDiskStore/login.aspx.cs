@@ -17,7 +17,7 @@ namespace OnlineDiskStore
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) return;
         }
         // Điều hướng đến trang đăng ký
         protected void LinkButton1_Click(object sender, EventArgs e)

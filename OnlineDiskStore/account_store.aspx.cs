@@ -77,9 +77,15 @@ namespace OnlineDiskStore
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Số tài khoản nhập sai')", true);
                 return;
             }
+            TextBox txt_cccd = (TextBox)dtl.FindControl("txt_cccd");
+            if(ContainsOnlyDigits(txt_cccd.Text) == false)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Số CCCD/CMND nhập sai')", true);
+                return;
+            }
             TextBox txt_bankname = (TextBox)dtl.FindControl("txt_bankname");
             TextBox txt_name = (TextBox)dtl.FindControl("txt_name");
-            TextBox txt_cccd = (TextBox)dtl.FindControl("txt_cccd");
+            
 
             string sql = "update Seller set sellerCitizenIDNum = N'"+txt_cccd.Text+"', sellerName = N'"+txt_name.Text+"', sellerBankNumber = N'"+ banknum_string + "', sellerBankName = N'"+ txt_bankname.Text+ "' where sellerID = '" + Session["customerID"] +"'  ";
             ldc.command2(sql);

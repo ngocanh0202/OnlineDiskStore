@@ -6,12 +6,13 @@
 <head runat="server">
     <title>Detail</title>
     <link rel="stylesheet" href="content/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/banner_new.css" />
     <link rel="stylesheet" href="css/detail_new.css" />
 </head>
 <body>
     <form id="form1" runat="server">
         <div class="container">
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div class="banner">
                 <!---------Banner------------->
                 <asp:ImageButton ID="logo" runat="server" ImageUrl="icons/logo-image.png" OnClick="logo_Click" />
@@ -27,6 +28,13 @@
                 <div class="cart">
                     <div class="cart-1">
                         <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" OnClick="cart_Click" />
+                        <div class="cart-1-1">
+                            <asp:UpdatePanel ID="UpdatePanel2" UpdateMode="Conditional" runat="server">
+                                <ContentTemplate>
+                                    <asp:Label ID="Label1"  runat="server" Text=""></asp:Label>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
+                        </div>
                     </div>
                     <div class="cart-2">
                         <p>Giỏ hàng</p>
@@ -42,8 +50,7 @@
                 </div>
             </div>
             <div class="detail-content">
-                <div class="detail-content-1">
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                <div class="detail-content-1">                    
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
                             <asp:DataList ID="DataList1" OnItemDataBound="DataList1_ItemDataBound" OnItemCommand="DataList1_ItemCommand" runat="server">

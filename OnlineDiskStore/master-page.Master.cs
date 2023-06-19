@@ -27,8 +27,9 @@ namespace OnlineDiskStore
         {
             if (Session["customerID"] != null)
             {
-                string idcart = "select cartID from Cart where CusotmerID = '" + Session["customerID"] +"' ";
-                string sql = "select count(*) from CartProduct where cartID = '"+ldc.read(idcart, "cartID") +"' ";
+                string idcart = "select cartID from Cart where CustomerID = '" + Session["customerID"] +"' ";
+                string a = ldc.read(idcart, "cartID");
+                string sql = "select count(productID) from CartProduct where cartID = '"+a+"'  ";
                 Label1.Text = ""+ldc.count(sql);
             }      
         }

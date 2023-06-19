@@ -50,7 +50,42 @@ namespace OnlineDiskStore
             TextBox txt_password_new_again = (TextBox)item.FindControl("txt_password_new_again");
             txt_password_new_again.Visible = true;
         }
+        private bool HasUpperCharacter(string a)
+        {
+            foreach (char c in a)
+            {
+                if (char.IsUpper(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // Kiểm có số
+        private bool HasNumberCharacter(string a)
+        {
+            foreach (char c in a)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        // kiểm tra không có kỹ tự đặc biệt (1)
+        private bool HasSpecialCharacters(string input)
+        {
+            string specialChars = @"!@#$%^&*()_+-=[]{};:'""<>,.?/`~";
 
+            foreach (char c in input)
+            {
+                if (specialChars.Contains(c))
+                    return true;
+            }
+
+            return false;
+        }
         protected void Button1_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -59,10 +94,15 @@ namespace OnlineDiskStore
             TextBox txt_password_new = (TextBox)item.FindControl("txt_password_new");
             if (txt_password_new_again.Text != "" || txt_password_new.Text != "")
             {
-                if (txt_password_new_again.Text == txt_password_new.Text)
+                if (txt_password_new_again.Text == txt_password_new.Text && HasSpecialCharacters(txt_password_new.Text) && HasNumberCharacter(txt_password_new.Text) && HasUpperCharacter(txt_password_new.Text))
                 {
                     string sql = "update Customer set customerPassword = '" + txt_password_new_again.Text + "' where customerID = '" + Session["customerID"] + "' ";
                     ldc.command(sql, "Cập nhập mật khẩu thành công", this);
+                }
+                else
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Mật khẩu nên có độ dài 9 ký tự, có số, có ký tự đặc biệt và ít nhất có một chữ viết hoa')", true);
+                    return;
                 }
             }
             Label lb_password_new = (Label)item.FindControl("lb_password_new");

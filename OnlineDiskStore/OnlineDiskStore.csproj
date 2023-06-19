@@ -137,7 +137,7 @@
     <Content Include="css\account_store.css" />
     <Content Include="css\account_user_update.css" />
     <Content Include="css\add_product_new.css" />
-    <Content Include="css\banner.css" />
+    <Content Include="css\banner_new.css" />
     <Content Include="css\become_seller.css" />
     <Content Include="css\cart.css" />
     <Content Include="css\detail_new.css" />

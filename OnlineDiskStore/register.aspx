@@ -33,7 +33,9 @@
                             </div>
                             <div class="nhap" style="padding-left: 60px;">
                                 <asp:TextBox ID="TextBox1" CssClass="register-input" TextMode="Password" runat="server" Width="395px"></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ForeColor="Red" ControlToValidate="TextBox1" runat="server" ErrorMessage="Không được để trống"></asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Display="Dynamic" ForeColor="Red" ControlToValidate="TextBox1" runat="server" ErrorMessage="Không được để trống"></asp:RequiredFieldValidator>
+                                <br />
+                                <asp:CustomValidator ID="CustomValidator2" Display="Dynamic" ForeColor="red" runat="server" ControlToValidate="TextBox1" OnServerValidate="CustomValidator2_ServerValidate"></asp:CustomValidator>
                             </div>
                         </div>
                         <div class="hang">

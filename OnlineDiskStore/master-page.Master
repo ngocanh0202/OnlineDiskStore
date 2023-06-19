@@ -9,7 +9,7 @@
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="css/master.css" />
-    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/banner_new.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,7 +28,7 @@
                 <div class="cart">
                     <div class="cart-1">
                         <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" OnClick="cart_Click" />
-                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                        <div class="cart-1-1"><asp:Label ID="Label1"  runat="server" Text=""></asp:Label></div>
                     </div>
                     <div class="cart-2">
                         <p>Giỏ hàng</p>

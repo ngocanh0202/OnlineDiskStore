@@ -22,6 +22,17 @@ namespace OnlineDiskStore
             if (IsPostBack) return;
             object id = Request.QueryString["id"];
             loaddatadetail(id);
+            cartnumber();
+        }
+        private void cartnumber()
+        {
+            if (Session["customerID"] != null)
+            {
+                string idcart = "select cartID from Cart where CustomerID = '" + Session["customerID"] + "' ";
+                string a = ldc.read(idcart, "cartID");
+                string sql = "select count(productID) from CartProduct where cartID = '" + a + "'  ";
+                Label1.Text = "" + ldc.count(sql);
+            }
         }
         private void loaddatadetail(object a)
         {
@@ -124,6 +135,8 @@ namespace OnlineDiskStore
             {
                 string sql = "insert into CartProduct values('"+ldc.read(idcarrt, "cartID") +"','" + id + "','" + textbox11 + "')";
                 ldc.command(sql, "Thêm vào giỏ hàng thành công", this);
+                cartnumber();
+                UpdatePanel2.Update();
             }
             else if ((int)ldc.count(dem2sql) > 0)
             {
