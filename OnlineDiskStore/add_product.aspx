@@ -13,7 +13,7 @@
         <div class="container">
             <div class="themsp">
                 <div class="themsp_Image">
-                    <asp:ImageButton ID="Image_btn_them" runat="server" ImageUrl="icons/logo-image.png" />
+                    <asp:ImageButton ID="Image_btn_them" runat="server" ImageUrl="icons/logo-image.png" OnClick="Image_btn_them_Click" />
                 </div>
                 <div class="themsp_line">
                 </div>
@@ -97,7 +97,7 @@
                         <div class="thongtin_4_2">
                             <ul class="thongtin_4_21">
                                 <li>
-                                    <asp:TextBox ID="txt_theloai" runat="server" Height="28px" Width="400px"></asp:TextBox>
+                                    <asp:DropDownList ID="DropDownList2" CssClass="DropDownList1" runat="server"></asp:DropDownList>
                                 </li>
                                 <li>
                                     <asp:DropDownList ID="DropDownList1" CssClass="DropDownList1" runat="server"></asp:DropDownList>

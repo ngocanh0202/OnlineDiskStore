@@ -105,7 +105,7 @@ namespace OnlineDiskStore
                     if((int)banknumber == 0)
                     {
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Bạn chưa có thông tin về thẻ ngân hàng, vui lòng cập nhập')", true);
-                        Response.Redirect("updatebank.aspx");
+                        Response.Redirect("accountuser.aspx");
                     }
                 }
             }

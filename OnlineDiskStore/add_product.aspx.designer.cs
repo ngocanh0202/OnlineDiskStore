@@ -87,13 +87,13 @@ namespace OnlineDiskStore
         protected global::System.Web.UI.WebControls.TextBox txt_soluong;
 
         /// <summary>
-        /// txt_theloai control.
+        /// DropDownList2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_theloai;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
         /// DropDownList1 control.

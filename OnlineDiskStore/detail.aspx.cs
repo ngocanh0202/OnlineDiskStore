@@ -31,6 +31,7 @@ namespace OnlineDiskStore
             }
             string id = a.ToString();
             string sql = "select * from Product,Seller where productID = '" + id + "' and Product.sellerID = Seller.sellerID ";
+            //string sql2 = "SELECT Product.*, Seller.sellerName, SUM(ReceiptProduct.quantity) AS numbersold FROM Product JOIN Seller ON Product.sellerID = Seller.sellerID JOIN ReceiptProduct ON Product.productID = ReceiptProduct.productID WHERE Product.productID = '"+id+"' GROUP BY Product.productName, Product.productID, Seller.sellerID, Seller.sellerName,Product.productImage,Product.productDescription,Product.productPrice,Product.productCategory,Product.productStockLevel,Product.sellerID,Product.productDistributeYear,Seller.sellerCitizenIDNum,Seller.sellerBankNumber,Seller.sellerBankName";
             //string sql = "select * from Product,Seller where productID = 01 and Product.sellerID = Seller.sellerID";
             DataList1.DataSource = ldc.getdata(sql);
             DataList1.DataBind();  
@@ -183,7 +184,7 @@ namespace OnlineDiskStore
             }
             else
             {
-                Response.Redirect("account_user.aspx");
+                Response.Redirect("accountuser.aspx");
             }
         }
 

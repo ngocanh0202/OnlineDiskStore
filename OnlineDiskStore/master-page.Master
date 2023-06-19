@@ -28,6 +28,7 @@
                 <div class="cart">
                     <div class="cart-1">
                         <asp:ImageButton ID="cart" runat="server" ImageUrl="icons/cart-logo.png" OnClick="cart_Click" />
+                        <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>
                     <div class="cart-2">
                         <p>Giỏ hàng</p>

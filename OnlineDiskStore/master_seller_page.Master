@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master_seller_page.master.cs" Inherits="OnlineDiskStore.master_seller_page" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/warehouse_seller.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="banner">
+                <ul>
+                    <li>
+                        <asp:ImageButton ID="ImageButton2" Height="80px" ImageUrl="~/icons/logo-image.png" OnClick="ImageButton2_Click" runat="server" />
+                    </li>
+                    <li>
+                        <asp:TextBox ID="TextBox1" placeholder="Tìm kiếm trong kho hàng" runat="server"></asp:TextBox>
+                        <asp:ImageButton ID="ImageButton1" ImageUrl="~/icons/logo-timkiem.png" OnClick="ImageButton1_Click" runat="server" />
+                    </li>
+                    <li>
+                        <div>
+                            <asp:ImageButton ID="ImageButton3" OnClick="ImageButton3_Click" ImageUrl="~/icons/logo-account.png" runat="server" />
+                            <div style="position: relative;left: -20px;">Tên tài khoản</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="add-new-product">
+                <span>Thêm sản phẩm</span>
+                <asp:Button ID="Button1" runat="server" Text="+" OnClick="Button1_Click" />
+            </div>
+            <div class="warehouse-product">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

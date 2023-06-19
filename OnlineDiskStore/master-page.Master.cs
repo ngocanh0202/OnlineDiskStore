@@ -20,6 +20,17 @@ namespace OnlineDiskStore
             if (IsPostBack) return;
             dropdown1();
             dropdown2();
+            cartnumber();
+        }
+        // cart
+        private void cartnumber()
+        {
+            if (Session["customerID"] != null)
+            {
+                string idcart = "select cartID from Cart where CusotmerID = '" + Session["customerID"] +"' ";
+                string sql = "select count(*) from CartProduct where cartID = '"+ldc.read(idcart, "cartID") +"' ";
+                Label1.Text = ""+ldc.count(sql);
+            }      
         }
         // quay về home page
         protected void logo_Click(object sender, ImageClickEventArgs e)

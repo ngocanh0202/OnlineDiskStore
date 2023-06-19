@@ -1,0 +1,45 @@
+﻿body {
+}
+.update_seller {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50px, -50px) scale(0.1);
+    border: 1px solid;
+    text-align: center;
+    transition: transform 0.4s;
+    visibility: hidden;
+    background: white;
+}
+.open_update_seller {
+    transform: translate(-50px, -50px) scale(1);
+    visibility:visible;
+}
+.update_seller .button_upload_file {
+    background: red;
+    color: white;
+}
+
+.update_seller .button_upload_file:hover {
+    background: white;
+    color: red;
+}
+.button_update {
+    margin-top: 10px;
+    background: red;
+    color: white;
+}
+
+    .button_update:hover {
+        background: white;
+        color: red;
+    }
+
+#txt_product_name {
+    border: 1px solid;
+}
+.information_td {
+    width: 200px;
+    text-align: left;
+    padding-left: 20px;
+}

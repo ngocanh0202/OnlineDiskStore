@@ -37,7 +37,7 @@ namespace OnlineDiskStore
         //  Kho hàng
         protected void Button4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("account_warehouse.aspx");
+            Response.Redirect("warehouse.aspx");
         }
 
         protected void Button5_Click(object sender, EventArgs e)
