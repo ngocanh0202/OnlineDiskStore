@@ -218,6 +218,7 @@
     <Content Include="account.Master" />
     <Content Include="account_detail_recetipt.aspx" />
     <Content Include="master_seller_page.Master" />
+    <Content Include="App_Data\OnlineDiskStore.bak" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -419,7 +420,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="buynow\" />
   </ItemGroup>
   <ItemGroup>
