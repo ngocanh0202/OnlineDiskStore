@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -19,10 +20,20 @@ namespace OnlineDiskStore
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            loaddata();
-            loadaddress();
-            totalprice();          
-            totallb();
+            if(Request.QueryString["id"] != null)
+            {
+                loaddata();
+                loadaddress();
+                totalprice();
+                totallb();
+            }
+            else if (Request.QueryString["idproduct"] != null && Request.QueryString["quantity"] != null)
+            {
+                loaddata();
+                loadaddress();
+                totalprice();
+                totallb();
+            }
         }
         // lấy địa chỉ mặc định cho khách hàng
         private void loadaddress()
@@ -33,16 +44,33 @@ namespace OnlineDiskStore
         // load dữ liệu tù cartproduct
         private void loaddata()
         {
-            string sql = "select Product.productName, Product.productImage, Product.productPrice, CartProduct.Quanity from CartProduct join Product on Product.productID = CartProduct.productID where CartProduct.cartID = '" + Request.QueryString["id"].ToString() + "' ";
-            DataList1.DataSource = ldc.getdata(sql);
-            DataList1.DataBind();
+            if (Request.QueryString["id"] != null)
+            {
+                string sql = "select Product.productName, Product.productImage, Product.productPrice, CartProduct.Quanity from CartProduct join Product on Product.productID = CartProduct.productID where CartProduct.cartID = '" + Request.QueryString["id"].ToString() + "' ";
+                DataList1.DataSource = ldc.getdata(sql);
+                DataList1.DataBind();
+            }
+            else if (Request.QueryString["idproduct"] != null && Request.QueryString["quantity"] != null)
+            {
+                string sql = "select productName, productImage, productPrice from Product where productID = '"+ Request.QueryString["idproduct"] + "' ";
+                DataList1.DataSource = ldc.getdata(sql);
+                DataList1.DataBind();
+            }
         }
         // Tiền sản phẩm
         private void totalprice()
         {
-            string sql = "select sum(Product.productPrice * CartProduct.Quanity) as total from CartProduct join Product on Product.productID = CartProduct.productID where CartProduct.cartID = '" + Request.QueryString["id"].ToString() + "' ";
-            object price = ldc.count(sql);
-            lb_price_product.Text = price+"";
+            if(Request.QueryString["id"] != null)
+            {
+                string sql = "select sum(Product.productPrice * CartProduct.Quanity) as total from CartProduct join Product on Product.productID = CartProduct.productID where CartProduct.cartID = '" + Request.QueryString["id"].ToString() + "' ";
+                object price = ldc.count(sql);
+                lb_price_product.Text = price + "";
+            }
+            else if (Request.QueryString["idproduct"] != null && Request.QueryString["quantity"] != null)
+            {
+                string sql = "select (productPrice * "+ Request.QueryString["quantity"] + ") as total from Product where productID = '"+ Request.QueryString["idproduct"] + "' ";
+                lb_price_product.Text = ldc.read(sql, "total") +"";
+            }
 
         }
         // tổng Tiền cần thanh toán
@@ -218,18 +246,110 @@ namespace OnlineDiskStore
                 ldc.command2(sql2);
             }
         }
+        private void takedatafromcartproduct(ref Hashtable ht)
+        {
+            string sql = "select productID,Quanity from CartProduct where cartID = '" + Request.QueryString["id"].ToString() + "' ";
+            SqlCommand cm = new SqlCommand(sql, ldc.cn);
+            SqlDataReader dr;
+            ldc.cn.Open();
+            dr = cm.ExecuteReader();
+            while (dr.Read())
+            {
+                ht.Add(dr["productID"], dr["quanity"]);
+            }
+            dr.Close();
+            ldc.cn.Close();
+        }
+        private int checkcartnumber()
+        {
+            Hashtable ht = new Hashtable();
+            takedatafromcartproduct(ref ht);
+            int check = 1;
+            foreach (DictionaryEntry items in ht)
+            {
+                string sql1product = "select sum(productStockLevel) from Product where productID = '" + items.Key + "'";
+                string sql2cart = "select sum(Quanity) from CartProduct where productID = '" + items.Key + "' and cartID = '" + Request.QueryString["id"].ToString() + "'";
+                if ((int)ldc.count(sql1product) < (int)ldc.count(sql2cart))
+                {
+                    check = 0;
+                    break;
+                }
+            }
+            return check;
+        }
+        private bool checkbuynow()
+        {
+            string sqlproduct = "select sum(productStockLevel) from Product where productID = '"+ Request.QueryString["idproduct"] + "' ";
+            if ((int)ldc.count(sqlproduct) < int.Parse(Request.QueryString["quantity"]))
+            {
+                return false;
+            }
+            return true;
+        }
         //button thanh toán
         protected void Button2_Click(object sender, EventArgs e)
         {
-            string sqlcount = "select count(*) from Receipt";
-            object a = ldc.count(sqlcount);
-            int ID = (int)a + 1;
-            if (receipt(ID) == 0) return;
-            receiptProduct(ID); // thêm xóa đơn
-            deletecart(); // xóa giỏ hàng
-            deletequanityproduct(); // cập nhập lại số lượng
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Thanh toán thành công')", true);
-            Response.Redirect("home-page.aspx");
+            if (Request.QueryString["id"] != null)
+            {
+                if (checkcartnumber() == 0) {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Không thể thanh toán')", true);
+                    return;
+                }
+                string sqlcount = "select count(*) from Receipt";
+                object a = ldc.count(sqlcount);
+                int ID = (int)a + 1;
+                if (receipt(ID) == 0) return;
+                receiptProduct(ID); // thêm xóa đơn
+                deletecart(); // xóa giỏ hàng
+                deletequanityproduct(); // cập nhập lại số lượng
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Thanh toán thành công')", true);
+                Response.Redirect("home-page.aspx");
+            }
+            else if (Request.QueryString["idproduct"] != null && Request.QueryString["quantity"] != null)
+            {
+                if(checkbuynow() == false)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Không thể thanh toán')", true);
+                    return;
+                }
+                if (DropDownList2.SelectedValue == "0" && Label6.Text == "")
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Chưa điền đủ thông tin')", true);
+                    return;
+                }
+                string sqlcount = "select count(*) from Receipt";
+                object a = ldc.count(sqlcount);
+                int ID = (int)a + 1;           
+                string sql1 = "insert into Receipt values('" + ID + "','" + Session["cartID"] + "','" + Session["customerID"] + "',N'" + Label6.Text + "','"+ lb_total.Text + "','"+DateTime.Now+ "', N'" + DropDownList2.SelectedItem.Text + "') ";
+                string sql2 = "insert into ReceiptProduct values('"+ID+"','"+ Request.QueryString["idproduct"].ToString()+ "','"+ Request.QueryString["quantity"].ToString()+ "')";
+                ldc.command2(sql1);
+                ldc.command2(sql2);
+                string updateproduct = "update Product set productStockLevel = productStockLevel - "+ Request.QueryString["quantity"].ToString() + " where productID = '"+ Request.QueryString["idproduct"] + "' ";
+                ldc.command2(updateproduct);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Thanh toán thành công')", true);            
+                Response.Redirect("home-page.aspx");
+                
+            }
+        }
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label Label2 = (Label)e.Item.FindControl("Label2");
+                if (Request.QueryString["id"] != null)
+                {
+                    DataRowView rowView = (DataRowView)e.Item.DataItem;
+                    Label2.Text = rowView["Quanity"].ToString();
+                    
+
+                }
+                else if (Request.QueryString["idproduct"] != null && Request.QueryString["quantity"] != null)
+                {
+                    Label2.Text = Request.QueryString["quantity"].ToString();
+                }
+            }
+                
         }
     }
 }

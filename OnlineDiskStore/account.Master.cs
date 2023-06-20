@@ -9,9 +9,28 @@ namespace OnlineDiskStore
 {
     public partial class account1 : System.Web.UI.MasterPage
     {
+        lopdungchung ldc;
+        public account1()
+        {
+            ldc = new lopdungchung();
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) return;
+            checkseller();
+        }
+        private void checkseller()
+        {
+            string sql = "select count(sellerID) from Customer where customerID = '" + Session["customerID"] + "' ";
+            int a = (int)ldc.count(sql);
+            if (a > 0)
+            {
+                Button4.Visible = true;
+            }
+            else
+            {
+                Button4.Visible = false;
+            }
         }
         // customer
         protected void Button1_Click(object sender, EventArgs e)

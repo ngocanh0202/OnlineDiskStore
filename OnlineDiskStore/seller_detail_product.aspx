@@ -6,7 +6,7 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/banner.css" />
+    <link rel="stylesheet" href="css/banner_new.css" />
     <link rel="stylesheet" href="css/seller_detail_product_new.css" />
     <link rel="stylesheet" href="css/update_detail_product_information_new.css" />
 </head>

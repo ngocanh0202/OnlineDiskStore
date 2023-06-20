@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="pay-text-datalist">
-                    <asp:DataList ID="DataList1" runat="server">
+                    <asp:DataList ID="DataList1" OnItemDataBound="DataList1_ItemDataBound" runat="server">
                         <ItemTemplate>
                             <div class="pay-text-datalist-1">
                                 <div class="pay-text-datalist-image">
@@ -47,7 +47,7 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("productName") %>'></asp:Label>
                                 </div>
                                 <div class="pay-text-datalist-numbers">
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Quanity") %>'></asp:Label>
+                                    <asp:Label ID="Label2" runat="server"></asp:Label>
                                 </div>
                                 <div class="pay-text-datalist-price">
                                     <asp:Label ID="Label3" runat="server" Text='<%# Eval("productPrice") %>'></asp:Label>
