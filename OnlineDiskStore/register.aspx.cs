@@ -114,5 +114,10 @@ namespace OnlineDiskStore
             CustomValidator2.ErrorMessage = "Mật khẩu nên có độ dài 9 ký tự, có số, có ký tự đặc biệt và ít nhất có một chữ viết hoa";
             args.IsValid = isVaild;           
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
+        }
     }
 }

@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="login-logo">
-                <asp:Image ID="Image1" runat="server" ImageUrl="icons/logo-image.png" />
+                <asp:ImageButton ID="Image1" OnClick="Image1_Click" runat="server" ImageUrl="icons/logo-image.png" />
             </div>
             <h2 style="margin-top: 17px; font-size: 25px;">Đăng Nhập</h2>
             <div class="login-textbox">

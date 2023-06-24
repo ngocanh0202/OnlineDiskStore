@@ -50,5 +50,10 @@ namespace OnlineDiskStore
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Đăng nhập thành công')", true);
             Response.Redirect("home-page.aspx");
         }
+
+        protected void Image1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
+        }
     }
 }

@@ -24,6 +24,15 @@ namespace OnlineDiskStore
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// ImageButton1 control.
         /// </summary>
         /// <remarks>
@@ -42,6 +51,15 @@ namespace OnlineDiskStore
         protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
+        /// up_voucher control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_voucher;
+
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -49,6 +67,15 @@ namespace OnlineDiskStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// up_voucher_choices control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_voucher_choices;
 
         /// <summary>
         /// DropDownList1 control.
@@ -87,6 +114,15 @@ namespace OnlineDiskStore
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
+        /// up_city control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_city;
+
+        /// <summary>
         /// DropDownList3 control.
         /// </summary>
         /// <remarks>
@@ -96,6 +132,15 @@ namespace OnlineDiskStore
         protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
 
         /// <summary>
+        /// up_quan_huyen control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_quan_huyen;
+
+        /// <summary>
         /// DropDownList4 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +148,15 @@ namespace OnlineDiskStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+
+        /// <summary>
+        /// up_phuong_xa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_phuong_xa;
 
         /// <summary>
         /// DropDownList5 control.
@@ -130,6 +184,24 @@ namespace OnlineDiskStore
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// CustomValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+
+        /// <summary>
+        /// up_total_price control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up_total_price;
 
         /// <summary>
         /// lb_price_product control.

@@ -34,6 +34,12 @@ namespace OnlineDiskStore
                 totalprice();
                 totallb();
             }
+            address_city();
+        }
+        private void address_city()
+        {
+            DropDownList3.Items.Add("Đà Nẵng");
+            DropDownList3.Items.Add("Thành Phố HCM");
         }
         // lấy địa chỉ mặc định cho khách hàng
         private void loadaddress()
@@ -114,6 +120,8 @@ namespace OnlineDiskStore
                 int b = int.Parse(Label8.Text.ToString()); // tiền vận chuyển
                 lb_total.Text = (a + b) + "";
             }
+            up_voucher.Update();
+            up_total_price.Update();
         }
         // logo 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -164,31 +172,128 @@ namespace OnlineDiskStore
             }
             return a;
         }
-
+        private void add_phuong_xa()
+        {
+            DropDownList5.Items.Clear();
+            DropDownList5.Items.Add("Chọn Phường/Xã");
+            if (DropDownList4.SelectedItem.Text == "Quận Hải Châu")
+            {
+                DropDownList5.Items.Add("Phường Hòa Cường Bắc");
+                DropDownList5.Items.Add("Phường Hòa Cường Nam");
+                DropDownList5.Items.Add("Phường Hòa Thuận Đông");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận Thanh Khê")
+            {
+                DropDownList5.Items.Add("Phường Thanh Khê Đông");
+                DropDownList5.Items.Add("Phường Thanh Khê Tây");
+                DropDownList5.Items.Add("Phường Xuân Hà");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận Sơn Trà")
+            {
+                DropDownList5.Items.Add("Phường Mân Thái");
+                DropDownList5.Items.Add("Phường An Hải Bắc");
+                DropDownList5.Items.Add("Phường An Hải Tây");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận Ngũ Hành Sơn")
+            {
+                DropDownList5.Items.Add("Phường Mỹ An");
+                DropDownList5.Items.Add("Phường Khuê Mỹ");
+                DropDownList5.Items.Add("Phường Hoà Quý");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Huyện Cẩm Lệ")
+            {
+                DropDownList5.Items.Add("Xã Hòa An");
+                DropDownList5.Items.Add("Xã Hòa Phát");
+                DropDownList5.Items.Add("Xã Hòa Thọ Đông");
+            }
+            if (DropDownList4.SelectedItem.Text == "Quận 1")
+            {
+                DropDownList5.Items.Add("Phường Bến Nghé");
+                DropDownList5.Items.Add("Phường Cầu Kho");
+                DropDownList5.Items.Add("Phường Cầu Ông Lãnh");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận 2")
+            {
+                DropDownList5.Items.Add("Phường Thảo Điền");
+                DropDownList5.Items.Add("Phường An Phú");
+                DropDownList5.Items.Add("Phường Bình An");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận 3")
+            {
+                DropDownList5.Items.Add("Phường 1");
+                DropDownList5.Items.Add("Phường 2");
+                DropDownList5.Items.Add("Phường 3");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận 4")
+            {
+                DropDownList5.Items.Add("Phường 1");
+                DropDownList5.Items.Add("Phường 2");
+                DropDownList5.Items.Add("Phường 3");
+            }
+            else if (DropDownList4.SelectedItem.Text == "Quận 5")
+            {
+                DropDownList5.Items.Add("Phường 1");
+                DropDownList5.Items.Add("Phường 2");
+                DropDownList5.Items.Add("Phường 3");
+            }
+        }
         //Chọn Phường xã 
         protected void DropDownList5_SelectedIndexChanged(object sender, EventArgs e)
         {
              Label6.Text = stringaddress();
+             
+        }
+        private void add_quan_huyen()
+        {
+            DropDownList4.Items.Clear();
+            DropDownList4.Items.Add("Chọn Quận/Huyện");
+            if (DropDownList3.SelectedItem.Text == "Đà Nẵng")
+            {
+                DropDownList4.Items.Add("Quận Hải Châu");
+                DropDownList4.Items.Add("Quận Thanh Khê");
+                DropDownList4.Items.Add("Quận Sơn Trà");
+                DropDownList4.Items.Add("Quận Ngũ Hành Sơn");
+                DropDownList4.Items.Add("Huyện Cẩm Lệ");
+
+            }
+            if (DropDownList3.SelectedItem.Text == "Thành Phố HCM")
+            {
+                DropDownList4.Items.Add("Quận 1");
+                DropDownList4.Items.Add("Quận 2");
+                DropDownList4.Items.Add("Quận 3");
+                DropDownList4.Items.Add("Quận 4");
+                DropDownList4.Items.Add("Quận 5");
+            }
         }
         //Chọn Tỉnh thành phố
         protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
         {
             Label6.Text = stringaddress();
+            add_quan_huyen();
+            up_quan_huyen.Update();
         }
+        
         //Chọn Quận huyện
         protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
         {
             Label6.Text = stringaddress();
+            add_phuong_xa();
+            up_phuong_xa.Update();
         }
         //Chọn Địa chỉ chi tiết
         protected void TextBox1_TextChanged(object sender, EventArgs e)
         {
             Label6.Text = stringaddress();
+
         }
         //đóng sự kiện chọn địa chỉ
         protected void Button1_Click(object sender, EventArgs e)
-        {
-            ClientScript.RegisterStartupScript(this.GetType(), "CloseScript", "let add = document.getElementById('pay-address-choices-id'); add.classList.remove('open-pay-address-choices'); __doPostBack('', '');", true);
+        {   
+            if (Page.IsValid)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "CloseScript", "let add = document.getElementById('pay-address-choices-id'); add.classList.remove('open-pay-address-choices'); __doPostBack('', '');", true);
+            }
+                
         }
         // Xử lý hóa đơn, check thông tin cần thiết
         private int receipt(int ID)
@@ -289,6 +394,7 @@ namespace OnlineDiskStore
         //button thanh toán
         protected void Button2_Click(object sender, EventArgs e)
         {
+            
             if (Request.QueryString["id"] != null)
             {
                 if (checkcartnumber() == 0) {
@@ -350,6 +456,16 @@ namespace OnlineDiskStore
                 }
             }
                 
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            bool isValid = true;
+            if (TextBox1.Text == "" || DropDownList3.SelectedValue == "0" || DropDownList4.SelectedItem.Text == "Chọn Quận/Huyện" || DropDownList5.SelectedItem.Text == "Chọn Phường/Xã")
+            {
+                isValid = false;
+            }
+            args.IsValid = isValid;
         }
     }
 }

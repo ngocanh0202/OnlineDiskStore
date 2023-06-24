@@ -10,9 +10,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+        <div class="container" style="margin-top:30px">
             <div class="logo_dangky">
-                <asp:ImageButton ID="ImageButton_logo" ImageUrl="icons/logo-image.png" runat="server" Height="90px" Width="90px" />
+                <asp:ImageButton ID="ImageButton_logo" OnClick="ImageButton_logo_Click" ImageUrl="icons/logo-image.png" runat="server" Height="90px" Width="90px" />
             </div>
             <div class="ten_trang">
                 <h1 class="mauchu">Đăng ký thành người bán hàng</h1>

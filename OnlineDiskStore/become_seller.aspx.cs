@@ -43,5 +43,10 @@ namespace OnlineDiskStore
             Response.Redirect("account_store.aspx");
 
         }
+
+        protected void ImageButton_logo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("home-page.aspx");
+        }
     }
 }

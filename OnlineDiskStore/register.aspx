@@ -12,7 +12,7 @@
         <div class="container">
             <div class="register-1">
                 <div class="image" style="text-align: center">
-                    <img src="icons/logo-image.png" />
+                    <asp:ImageButton ID="ImageButton1" CausesValidation="false" runat="server" OnClick="ImageButton1_Click" ImageUrl="~/icons/logo-image.png" />
                 </div>
                 <div class="dangky">
                     <div class="bd">
