@@ -418,7 +418,7 @@ namespace OnlineDiskStore
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Không thể thanh toán')", true);
                     return;
                 }
-                if (DropDownList2.SelectedValue == "0" && Label6.Text == "")
+                if (DropDownList2.SelectedValue == "0" || Label6.Text == "")
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alerMessage", "alert('Chưa điền đủ thông tin')", true);
                     return;
