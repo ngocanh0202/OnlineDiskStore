@@ -219,6 +219,7 @@
     <Content Include="account_detail_recetipt.aspx" />
     <Content Include="master_seller_page.Master" />
     <Content Include="App_Data\OnlineDiskStore.bak" />
+    <Content Include="WebForm3.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -417,6 +418,13 @@
     </Compile>
     <Compile Include="warehouse.aspx.designer.cs">
       <DependentUpon>warehouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

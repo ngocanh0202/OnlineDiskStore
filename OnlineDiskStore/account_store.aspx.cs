@@ -51,8 +51,11 @@ namespace OnlineDiskStore
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 TextBox txt_banknum = (TextBox)e.Item.FindControl("txt_banknum");
+                TextBox txt_cccd = (TextBox)e.Item.FindControl("txt_cccd");
                 string value = ((DataRowView)e.Item.DataItem)["sellerBankNumber"].ToString().Trim();
                 txt_banknum.Text = value;
+                value = ((DataRowView)e.Item.DataItem)["sellerCitizenIDNum"].ToString().Trim();
+                txt_cccd.Text = value;
             }
         }
         public bool ContainsOnlyDigits(string input)
